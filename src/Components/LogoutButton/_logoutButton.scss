@@ -1,15 +1,17 @@
-.navItem {
+.logoutButton {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   column-gap: 0.5rem;
-  width: 100%;
+  width: 50%;
   transition: all ease 0.25s;
-  margin: 1rem 0 1rem;
+  margin: 0 auto;
+  margin-top: auto;
+  margin-bottom: 3rem;
 }
 
-.navItem:hover {
+.logoutButton:hover {
   cursor: pointer;
-  opacity: 0.5;
   transition: all ease 0.25s;
+  opacity: 0.5;
 }
