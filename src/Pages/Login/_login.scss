@@ -3,6 +3,10 @@ div {
   font-size: 50rem;
 
   @include sm() {
-    font-size: 10rem;
+    font-size: 10 rem;
+  }
+
+  @include md() {
+    font-size: 15rem;
   }
 }
