@@ -1,0 +1,23 @@
+.navItem {
+    width: 100%;
+    max-width: 100%;
+    background-color: yellow;
+}
+
+.navItem__item {
+    color: $main-white;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    column-gap: .5rem;
+    width: 100%;
+    font-size: $font-size-md;
+    transition: all ease .25s;
+    margin: 1rem 0 1rem;
+}
+
+.navItem__item:hover {
+    cursor: pointer;
+    opacity: .5;
+    transition: all ease .25s;
+}
