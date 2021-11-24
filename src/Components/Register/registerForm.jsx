@@ -1,27 +1,36 @@
 import React, { useState } from "react";
-
-//Globals
+// import { Navigate } from "react-router-dom";
 import { URL } from "../../GlobalStyles/variables/variables";
 
-//Styling
-import "./loginForm.scss";
-
-const LoginForm = () => {
+const RegisterForm = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [redirect, setRedirect] = useState(false);
 
   const submit = async (e) => {
     e.preventDefault();
-    await fetch(URL + "login", {
+    await fetch(URL + "register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      credentials: "include",
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ name, email, password }),
     });
+
+    setRedirect(true);
   };
+
+  if (redirect) {
+    //   return <Navigate to="/" />;
+    window.location.reload();
+  }
   return (
     <form onSubmit={submit}>
       <h1>
+        <input
+          placeholder="Name"
+          required
+          onChange={(e) => setName(e.target.value)}
+        />
         <input
           type="email"
           placeholder="Email adress"
@@ -34,10 +43,10 @@ const LoginForm = () => {
           required
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">Sign in</button>
+        <button type="submit">Register</button>
       </h1>
     </form>
   );
 };
 
-export default LoginForm;
+export default RegisterForm;
