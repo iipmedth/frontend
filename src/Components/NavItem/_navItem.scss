@@ -6,10 +6,9 @@
   width: 100%;
   transition: all ease 0.25s;
   margin: 2rem 0 1rem 0;
-}
-
-.navItem:hover {
-  cursor: pointer;
-  opacity: 0.5;
-  transition: all ease 0.25s;
+  &:hover{
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all ease 0.25s;
+  }
 }

@@ -2,10 +2,13 @@ import React from "react";
 /**
  * Place imported icons below:
  */
-import SettingsIcon from "@mui/icons-material/Settings";
 import HelpIcon from "@mui/icons-material/Help";
-import StorageIcon from "@mui/icons-material/Storage";
-import LogoutIcon from "@mui/icons-material/Logout";
+import SickIcon from "@mui/icons-material/Sick";
+import PanToolIcon from "@mui/icons-material/PanTool";
+import SportsHandballIcon from "@mui/icons-material/SportsHandball";
+import PsychologyIcon from "@mui/icons-material/Psychology";
+import WbIncandescentIcon from "@mui/icons-material/WbIncandescent";
+import QuestionAnswerIcon from "@mui/icons-material/QuestionAnswer";
 
 /**
  * Component which displays items in navbar, to add icons
@@ -21,12 +24,18 @@ const NavItem = (props) => {
     <li className="navItem" onClick={clickHandler}>
       {(() => {
         switch (props.icon) {
-          case "storageIcon":
-            return <StorageIcon />;
-          case "settingsIcon":
-            return <SettingsIcon />;
-          case "logoutIcon":
-            return <LogoutIcon />;
+          case "sickIcon":
+            return <SickIcon />;
+          case "handIcon":
+            return <PanToolIcon />;
+          case "activityIcon":
+            return <SportsHandballIcon />;
+          case "participationIcon":
+            return <PsychologyIcon />;
+          case "conclusionIcon":
+            return <WbIncandescentIcon />;
+          case "adviceIcon":
+            return <QuestionAnswerIcon />;
           default:
             return <HelpIcon />;
         }

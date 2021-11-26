@@ -4,7 +4,6 @@
   height: 100%;
   max-width: 100%;
   max-height: 100%;
-  overflow: hidden;
   user-select: none;
   color: $main-white;
   font-size: $font-size-md;
@@ -14,6 +13,34 @@
 
 .navbar__nav {
   margin: 0 auto;
-  margin-top: .5rem;
-  padding: .5rem;
+  margin-top: 4rem;
+}
+
+.navbar__bottomBox {
+  margin-top: auto;
+  border-top: 1px solid $main-white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbar__upperBox {
+  border-bottom: 1px solid $main-white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1.5rem
+}
+
+.navbar__upperBox__backButton {
+  border: none;
+  background-color: $main-blue;
+  color: white;
+  transition: .25s all ease;
+  align-self: flex-start;
+  &:hover {
+    cursor: pointer;
+    transition: .25s all ease;
+    opacity: .5;
+  }
 }
