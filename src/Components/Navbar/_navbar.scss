@@ -29,18 +29,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 1.5rem
+  margin-top: 1.5rem;
 }
 
 .navbar__upperBox__backButton {
   border: none;
   background-color: $main-blue;
   color: white;
-  transition: .25s all ease;
+  transition: 0.25s all ease;
   align-self: flex-start;
   &:hover {
     cursor: pointer;
-    transition: .25s all ease;
-    opacity: .5;
+    transition: 0.25s all ease;
+    opacity: 0.5;
   }
 }

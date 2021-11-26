@@ -10,7 +10,7 @@ const Navbar = () => {
     <article className="navbar box">
       <div className="navbar__upperBox">
         <button className="navbar__upperBox__backButton">
-          <ArrowBackIcon sx={{fontSize: 30}} />
+          <ArrowBackIcon sx={{ fontSize: 30 }} />
         </button>
         <PatientBadge />
       </div>

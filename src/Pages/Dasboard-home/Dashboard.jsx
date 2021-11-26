@@ -6,10 +6,10 @@ export default class Dashboard extends React.Component {
     return (
       <div className="row dashboard">
         <div className="col-lg-1 box">
-          <Navbar />    
+          <Navbar />
         </div>
-        <div className="col-lg"> 
-            <h1 className="box">hi</h1>
+        <div className="col-lg">
+          <h1 className="box">hi</h1>
         </div>
       </div>
     );
