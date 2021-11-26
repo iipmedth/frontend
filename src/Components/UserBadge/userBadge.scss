@@ -4,17 +4,17 @@
   width: 80%;
   margin: 0 auto;
   margin-top: 5rem;
-  column-gap: 0.5rem;
+  column-gap: 1rem;
   user-select: none;
 }
 
 .userBadge__image {
-  width: 24px;
-  height: 24px;
+  width: $font-size-md;
+  height: $font-size-md;
 }
 
 .userBadge__text {
   height: 25px;
   font-weight: bold;
-  font-size: 24px;
+  font-size: $font-size-md;
 }
