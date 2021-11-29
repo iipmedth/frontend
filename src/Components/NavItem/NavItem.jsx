@@ -21,7 +21,7 @@ const NavItem = (props) => {
   };
 
   return (
-    <li className="navItem" onClick={clickHandler}>
+    <li className="navItem row" onClick={clickHandler}>
       {(() => {
         switch (props.icon) {
           case "sickIcon":

@@ -14,7 +14,7 @@ const Navbar = () => {
         </button>
         <PatientBadge />
       </div>
-      <ul className="navbar__nav">
+      <ul className="navbar__nav col-lg">
         <NavItem text="Complaint" icon="sickIcon" />
         <NavItem text="Hand profile" icon="handIcon" />
         <NavItem text="Activities" icon="activityIcon" />
