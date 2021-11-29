@@ -1,0 +1,11 @@
+// Style with min-width not max-width (Mobile ---- Desktop)
+// Don't forget about the order later ones have priority
+
+@import "./GlobalStyles/Globals.scss";
+@import "./Pages/Login/login";
+@import "./Pages/Dasboard-handProfile/dashboardHandProfile";
+@import "./Components/Navbar/navbar";
+@import "./Components/NavItem/navItem";
+@import "./Components/LogoutButton/logoutButton";
+@import "./Components/UserBadge/userBadge";
+@import "./Components/PatientBadge/patientBadge";
