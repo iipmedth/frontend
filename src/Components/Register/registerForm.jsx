@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // import { Navigate } from "react-router-dom";
-import { URL } from "../../GlobalStyles/variables/variables";
+import { TEST_URL } from "../../GlobalStyles/variables/variables";
 
 const RegisterForm = () => {
   const [name, setName] = useState("");
@@ -10,7 +10,7 @@ const RegisterForm = () => {
 
   const submit = async (e) => {
     e.preventDefault();
-    await fetch(URL + "register", {
+    await fetch(TEST_URL + "register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, password }),
@@ -21,7 +21,6 @@ const RegisterForm = () => {
 
   if (redirect) {
     //   return <Navigate to="/" />;
-    window.location.reload();
   }
   return (
     <form onSubmit={submit}>
