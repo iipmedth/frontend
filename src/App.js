@@ -1,13 +1,13 @@
 import "./App.scss";
 // import Login from "./Pages/Login/Login";
-import Dashboard from "./Pages/Dasboard-home/Dashboard";
+import DashboardHandProfile from "./Pages/Dasboard-handProfile/DashboardHandPofile";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Dashboard />} />
+        <Route path="/" element={<DashboardHandProfile />} />
       </Routes>
     </BrowserRouter>
 
