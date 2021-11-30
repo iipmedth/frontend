@@ -32,6 +32,13 @@
   margin-top: 1.5rem;
 }
 
+.navbar__clock {
+  margin: 0 auto;
+  margin-top: 2rem;
+  font-size: $font-size-xl;
+  font-weight: bold;
+}
+
 .navbar__upperBox__backButton {
   border: none;
   background-color: $main-blue;

@@ -8,7 +8,7 @@ export default class DashboardHandProfile extends React.Component {
       <div className="row dashboard">
         {/* NAVBAR */}
         <div className="col-lg-1">
-          <Navbar />
+          <Navbar content="dashboard" />
         </div>
 
         <div className="col-lg">
