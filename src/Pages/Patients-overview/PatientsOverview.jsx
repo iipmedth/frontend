@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../../Components/Navbar/Navbar";
+import Searchbar from "../../Components/Searchbar/Searchbar";
 
 export default class PatientsOverview extends React.Component {
   render() {
@@ -8,8 +9,11 @@ export default class PatientsOverview extends React.Component {
         <div className="col-lg-2">
           <Navbar content="overview" />
         </div>
-        <div className="col-lg">
-          <h1>hi</h1>
+        <div className="col-lg  patientsOverview__content">
+          <h1 className="row patientsOverview__content__header">Patients</h1>
+          <div className="row">
+            <Searchbar />
+          </div>
         </div>
       </div>
     );

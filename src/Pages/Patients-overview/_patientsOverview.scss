@@ -1,4 +1,14 @@
 .patientsOverview {
   height: 100%;
   width: 100%;
+  background-color: $main-background;
+}
+
+.patientsOverview__content {
+  padding: 2rem;
+
+  &__header {
+    font-size: $font-size-xl;
+    font-weight: bold;
+  }
 }
