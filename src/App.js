@@ -1,17 +1,10 @@
+//Styling
 import "./App.scss";
-<<<<<<< HEAD
-import Login from "./Pages/Login/Login-page";
-import LoginForm from "./Components/Login/loginForm";
-import { Fragment } from "react/cjs/react.production.min";
-
-function App() {
-  return (
-    <Fragment>
-      <Login />
-    </Fragment>
-=======
-// import Login from "./Pages/Login/Login";
+//Pages
+import Register from "./Pages/Authentication/registerPage";
+import Login from "./Pages/Authentication/loginPage";
 import DashboardHandProfile from "./Pages/Dasboard-handProfile/DashboardHandPofile";
+//Modules
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -19,6 +12,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<DashboardHandProfile />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </BrowserRouter>
 
@@ -29,7 +24,6 @@ function App() {
 
     //   </div>
     // </div>
->>>>>>> develop
   );
 }
 
