@@ -4,8 +4,10 @@ import SearchIcon from "@mui/icons-material/Search";
 const Searchbar = () => {
   return (
     <div className="searchbar">
-      <div className="searchbar__icon">
-        <SearchIcon fontSize="large" />
+      <div className="searchbar__iconContainer">
+        <div className="searchbar__iconContainer__icon">
+          <SearchIcon sx={{ fontSize: 30 }} />
+        </div>
       </div>
 
       <input
