@@ -1,6 +1,10 @@
+//Styling
 import "./App.scss";
-// import Login from "./Pages/Login/Login";
+//Pages
+import Register from "./Pages/Authentication/registerPage";
+import Login from "./Pages/Authentication/loginPage";
 import DashboardHandProfile from "./Pages/Dasboard-handProfile/DashboardHandPofile";
+//Modules
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -8,6 +12,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<DashboardHandProfile />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </BrowserRouter>
 
