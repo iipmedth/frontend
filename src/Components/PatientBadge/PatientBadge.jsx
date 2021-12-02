@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import ContactPageIcon from "@mui/icons-material/ContactPage";
 
-import { TEST_URL } from "../../GlobalStyles/variables/variables";
+import { URL } from "../../GlobalStyles/variables/variables";
 
 const PatientBadge = () => {
   const [name, setName] = useState("");
   useEffect(() => {
     (async () => {
-      const response = await fetch(TEST_URL + "user", {
+      const response = await fetch(URL + "user", {
         headers: { "Content-Type": "application/json" },
         credentials: "include",
       });

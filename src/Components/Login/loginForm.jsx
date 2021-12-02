@@ -8,9 +8,9 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
 
   const submit = async (e) => {
-    console.log(TEST_URL + "login");
+    console.log(URL + "login");
     e.preventDefault();
-    const response = await fetch(TEST_URL + "login", {
+    const response = await fetch(URL + "login", {
       method: "POST",
       credentials: "include",
       headers: { "Content-Type": "application/json" },
