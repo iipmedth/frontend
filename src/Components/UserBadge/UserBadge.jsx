@@ -16,7 +16,7 @@ const UserBadge = () => {
         src={unknownUserIcon}
         alt="User icon"
       ></img>
-      <p className="userBadge__text">{userData.name}</p>
+      <p className="userBadge__text">{userData ? userData.name : ""}</p>
     </div>
   );
 };

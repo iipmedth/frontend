@@ -7,7 +7,7 @@ const DashboardHandProfile = () => {
     <div className="row dashboard">
       {/* NAVBAR */}
       <div className="col-lg-2">
-        <Navbar />
+        <Navbar content="dashboard" />
       </div>
 
       <div className="col-lg">

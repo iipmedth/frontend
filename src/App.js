@@ -4,11 +4,12 @@ import "./App.scss";
 import Register from "./Pages/Authentication/registerPage";
 import Login from "./Pages/Authentication/loginPage";
 import DashboardHandProfile from "./Pages/Dasboard-handProfile/DashboardHandPofile";
+import PatientsOverview from "./Pages/Patients-overview/PatientsOverview";
+
 //Modules
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import { DataProvider } from "./context/DataContext";
-import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
             <Route path="/" element={<Login />} />
             <Route path="/register" element={<Register />} />
 
-            {/* PRIVATE ROUTES */}
+            <Route path="/patients" element={<PatientsOverview />} />
             <Route path="/dashboard" element={<DashboardHandProfile />} />
           </Routes>
         </BrowserRouter>
