@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import unknownUserIcon from "../../Static/images/unknown_user_icon.svg";
+import { DataContext } from "../../context/DataContext";
 
 const UserBadge = () => {
+  const { userData } = useContext(DataContext);
+
+  useEffect(() => {
+    console.log(userData);
+  }, [userData]);
+
   return (
     <div className="userBadge">
       <img
@@ -9,7 +16,7 @@ const UserBadge = () => {
         src={unknownUserIcon}
         alt="User icon"
       ></img>
-      <p className="userBadge__text">Dr. Jeroen</p>
+      <p className="userBadge__text">{userData.name}</p>
     </div>
   );
 };

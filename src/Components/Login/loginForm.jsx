@@ -1,20 +1,18 @@
-import React, { useState, useEffect } from "react";
-
-//Globals
-import { URL, TEST_URL } from "../../GlobalStyles/variables/variables";
+import React, { useState, useContext, useEffect } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 const LoginForm = () => {
+  const { login } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const submit = async (e) => {
-    console.log(URL + "login");
     e.preventDefault();
-    const response = await fetch(URL + "login", {
-      method: "POST",
-      credentials: "include",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, password }),
+
+    await login(email, password).then((authSuccess) => {
+      if (authSuccess) {
+        console.log("login successfull");
+      }
     });
   };
 

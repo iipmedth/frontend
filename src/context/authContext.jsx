@@ -1,22 +1,25 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useEffect } from "react";
+import { login, register } from "../API/apiMethods";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState("");
+  // const [authenticated, setAuthenticated] = useState(false);
 
-  async const  login = (email, login) => {
-    await console.log('this');
-  }
+  // useEffect(() => {
+  //   checkAuth();
+  // }, []);
+
+  // const checkAuth = () => {
+  //   const check = localStorage.getItem("auth");
+  //   setAuthenticated(check);
+  // };
 
   return (
     <AuthContext.Provider
       value={{
-        user,
-        setUser,
         login,
         register,
-        logout,
       }}
     >
       {children}
