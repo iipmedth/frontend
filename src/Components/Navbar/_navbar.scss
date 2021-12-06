@@ -43,7 +43,7 @@
 .navbar__upperBox__backButton {
   border: none;
   background-color: $main-blue;
-  color: white;
+  color: $main-white;
   transition: 0.25s all ease;
   align-self: flex-start;
   &:hover {

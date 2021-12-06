@@ -1,5 +1,5 @@
 import React, { createContext } from "react";
-import { login, register } from "../API/apiMethods";
+import { login, register, logout } from "../API/apiMethods";
 
 export const AuthContext = createContext();
 
@@ -9,6 +9,7 @@ export const AuthProvider = ({ children }) => {
       value={{
         login,
         register,
+        logout,
       }}
     >
       {children}

@@ -5,6 +5,7 @@ import Clock from "../Clock/Clock";
 import UserBadge from "../UserBadge/UserBadge";
 import PatientBadge from "../PatientBadge/PatientBadge";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { Link } from "react-router-dom";
 
 const Navbar = (props) => {
   return (
@@ -13,7 +14,9 @@ const Navbar = (props) => {
         <div>
           <div className="navbar__upperBox">
             <button className="navbar__upperBox__backButton">
-              <ArrowBackIcon sx={{ fontSize: 30 }} />
+              <Link to="/patients">
+                <ArrowBackIcon sx={{ fontSize: 30, color: "white" }} />
+              </Link>
             </button>
             <PatientBadge />
           </div>

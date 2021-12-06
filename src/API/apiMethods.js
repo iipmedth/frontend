@@ -26,6 +26,18 @@ export const login = async (email, password) => {
 };
 
 /**
+ * @description Logout user and redirect to login page
+ */
+export const logout = async () => {
+  await fetch(BASE_URL + "logout", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    credentials: "include",
+  });
+  window.location.replace("/");
+};
+
+/**
  * @description Handles register
  * @param {String} name
  * @param {String} email
