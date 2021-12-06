@@ -1,8 +1,14 @@
 import React, { useEffect, useContext } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
+import { DataContext } from "../../context/DataContext";
 import Logo from "../../Static/images/rfLogo.png";
 
 const DashboardHandProfile = () => {
+  const { selectedPatient } = useContext(DataContext);
+  useEffect(() => {
+    console.log(selectedPatient);
+  }, [selectedPatient]);
+
   return (
     <div className="row dashboard">
       {/* NAVBAR */}

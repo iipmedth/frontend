@@ -1,24 +1,26 @@
-import React, { useEffect } from "react";
+import React from "react";
 import PatientListItem from "../PatientListItem/PatientListItem";
-import patients from "../../TestData/patients.json";
+import SentimentVeryDissatisfiedIcon from "@mui/icons-material/SentimentVeryDissatisfied";
 
-const PatientsContainer = () => {
-  useEffect(() => {
-    console.log(patients);
-  }, [patients]);
+const PatientsContainer = (props) => {
   return (
     <div className="col-lg patientsContainer">
       <ul>
-        {patients.map((patient, index) => {
-          return (
-            <PatientListItem
-              name={patient.name}
-              dob={patient.date_of_birth}
-              sex={patient.gender}
-              instrument={patient.instrument}
+        {props.patients.length > 0 ? (
+          props.patients.map((patientObj, index) => {
+            return <PatientListItem key={index} patient={patientObj.patient} />;
+          })
+        ) : (
+          <div className="patientsContainer__notFound">
+            <SentimentVeryDissatisfiedIcon
+              sx={{ fontSize: 70, marginBottom: 5 }}
             />
-          );
-        })}
+            <p>I couldn't find any patients with the name:</p>
+            <p className="patientsContainer__notFound--highlight">
+              {props.searchCriteria}
+            </p>
+          </div>
+        )}
       </ul>
     </div>
   );

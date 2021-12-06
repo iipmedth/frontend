@@ -15,6 +15,7 @@ export const login = async (email, password) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
     }).then((res) => {
+      console.log(res);
       authenticated = res.status === 200 ? true : false;
     });
     return authenticated;
@@ -65,9 +66,25 @@ export const fetchUserData = async () => {
     });
     return data;
   } catch (err) {
-    /**
-     * @TODO Handle error
-     */
-    console.log(err);
+    return null;
+  }
+};
+
+/**
+ * Fetches the patients of the logged in therapist
+ * @returns {JSON} Patients of therapist
+ */
+export const fetchPatients = async () => {
+  try {
+    let data = null;
+    await fetch(BASE_URL + "therapist/patients", {
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+    }).then((response) => {
+      data = response.json();
+    });
+    return data;
+  } catch (err) {
+    return null;
   }
 };
