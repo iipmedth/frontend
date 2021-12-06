@@ -1,24 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useContext } from "react";
 import ContactPageIcon from "@mui/icons-material/ContactPage";
-
-import { TEST_URL } from "../../GlobalStyles/variables/variables";
+import { DataContext } from "../../context/DataContext";
 
 const PatientBadge = () => {
-  const [name, setName] = useState("");
-  useEffect(() => {
-    (async () => {
-      const response = await fetch(TEST_URL + "user", {
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-      });
-      const content = await response.json();
-      setName(content.name);
-    })();
-  });
+  const { selectedPatient } = useContext(DataContext);
+  useEffect(() => {}, [selectedPatient]);
   return (
     <div className="patientBadge">
       <ContactPageIcon />
-      <p className="patientBadge__text">{name}</p>
+      <p className="patientBadge__text">
+        {selectedPatient ? selectedPatient.name : ""}
+      </p>
     </div>
   );
 };

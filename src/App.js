@@ -4,26 +4,28 @@ import "./App.scss";
 import Register from "./Pages/Authentication/registerPage";
 import Login from "./Pages/Authentication/loginPage";
 import DashboardHandProfile from "./Pages/Dasboard-handProfile/DashboardHandPofile";
+import PatientsOverview from "./Pages/Patients-overview/PatientsOverview";
+
 //Modules
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
+import { DataProvider } from "./context/DataContext";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<DashboardHandProfile />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-      </Routes>
-    </BrowserRouter>
+    <AuthProvider>
+      <DataProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/register" element={<Register />} />
 
-    // <div className="row center-lg">
-    //   <div className="col-lg-8">
-    //     {/* TODO: Revert to login page */}
-    //     {/* <Login /> */}
-
-    //   </div>
-    // </div>
+            <Route path="/patients" element={<PatientsOverview />} />
+            <Route path="/dashboard" element={<DashboardHandProfile />} />
+          </Routes>
+        </BrowserRouter>
+      </DataProvider>
+    </AuthProvider>
   );
 }
 

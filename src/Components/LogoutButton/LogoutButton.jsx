@@ -1,22 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import LogoutIcon from "@mui/icons-material/Logout";
-
-import { TEST_URL } from "../../GlobalStyles/variables/variables";
+import { AuthContext } from "../../context/AuthContext";
 
 const LogoutButton = () => {
-  const logout = async () => {
-    await fetch(TEST_URL + "logout", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      credentials: "include",
-    });
-  };
-  const clickHandler = () => {
-    logout();
-    console.log("Logout button clicked");
-  };
+  const { logout } = useContext(AuthContext);
+
   return (
-    <div className="logoutButton" onClick={clickHandler}>
+    <div className="logoutButton" onClick={logout}>
       <LogoutIcon />
       <p>Logout</p>
     </div>
