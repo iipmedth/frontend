@@ -1,0 +1,72 @@
+[
+  {
+    "user_id": 1,
+    "name": "Jan van Lexmond",
+    "gender": "Male",
+    "date_of_birth": "21-05-1998",
+    "instrument": "Piano"
+  },
+  {
+    "user_id": 2,
+    "name": "Valerie van de Werf",
+    "gender": "Female",
+    "date_of_birth": "11-10-1952",
+    "instrument": "Violin"
+  },
+  {
+    "user_id": 3,
+    "name": "Mans Lögen",
+    "gender": "Male",
+    "date_of_birth": "01-1-2001",
+    "instrument": "Guitar"
+  },
+  {
+    "user_id": 4,
+    "name": "Yioa Chu",
+    "gender": "Female",
+    "date_of_birth": "02-09-1990",
+    "instrument": "Violin"
+  },
+  {
+    "user_id": 5,
+    "name": "Connie Veer",
+    "gender": "Female",
+    "date_of_birth": "05-12-1986",
+    "instrument": "Guitar"
+  },
+  {
+    "user_id": 6,
+    "name": "Conrad von Angst",
+    "gender": "Male",
+    "date_of_birth": "24-11-1994",
+    "instrument": "Piano"
+  },
+  {
+    "user_id": 7,
+    "name": "Sam Dalen",
+    "gender": "Male",
+    "date_of_birth": "12-09-2003",
+    "instrument": "Piano"
+  },
+  {
+    "user_id": 8,
+    "name": "Moniek Kool",
+    "gender": "Female",
+    "date_of_birth": "07-08-1999",
+    "instrument": "Piano"
+  },
+  {
+    "user_id": 9,
+    "name": "Boris Smit",
+    "gender": "Male",
+    "date_of_birth": "15-11-1972",
+    "instrument": "Violin"
+  },
+  {
+    "user_id": 10,
+    "name": "Mohammed Amis",
+    "gender": "Male",
+    "date_of_birth": "03-02-2000",
+    "instrument": "Guitar"
+  }
+]

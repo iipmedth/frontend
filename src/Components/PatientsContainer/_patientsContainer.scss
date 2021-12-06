@@ -1,0 +1,15 @@
+.patientsContainer {
+  width: 100%;
+  height: 40rem;
+  border-radius: $border-radius;
+  background-color: $main-white;
+  padding: 1rem;
+  border: 0.1rem solid $light-grey;
+
+  overflow-y: scroll;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+}

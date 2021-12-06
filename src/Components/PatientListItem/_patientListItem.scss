@@ -1,0 +1,36 @@
+.patientListItem {
+  display: flex;
+  flex-direction: row;
+  font-size: $font-size-regular;
+  border: 0.1rem solid $light-grey;
+  margin-bottom: 2rem;
+  border-radius: $border-radius;
+  align-items: center;
+  transition: all 0.25s ease;
+
+  & > p {
+    padding: 1rem;
+    width: 30rem;
+  }
+
+  &__icon {
+    background-color: $dark-grey;
+    color: white;
+    display: flex;
+    align-items: center;
+    border-radius: $border-radius 0 0 $border-radius;
+    padding: 0.5rem;
+  }
+
+  &:hover {
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: 0.1rem solid $dark-grey;
+    transform: scale(1.01);
+  }
+
+  &:active {
+    transform: scale(0.99);
+    border: 0.1rem solid $main-blue;
+  }
+}
