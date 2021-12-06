@@ -1,5 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
+import PatientDataSection from "../../Components/PatientDataSection/PatientDataSection";
 import { DataContext } from "../../context/DataContext";
 import Logo from "../../Static/images/rfLogo.png";
 
@@ -34,7 +35,7 @@ const DashboardHandProfile = () => {
           <div className=" col-lg dashboard__data">
             <div className="row dashboard__data__header">
               <div className="box dashboard__data__header__patientData">
-                PATIENT DATA PLACEHOLDER
+                <PatientDataSection patient={selectedPatient} />
               </div>
               <div className="box dashboard__data__header__dataInfo">
                 DATA INFO PLACEHOLDER
