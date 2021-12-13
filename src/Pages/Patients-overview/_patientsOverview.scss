@@ -1,0 +1,25 @@
+.patientsOverview {
+  height: 100%;
+  width: 100%;
+  background-color: $main-background;
+  user-select: none;
+}
+
+.patientsOverview__content {
+  padding: 2rem;
+  width: 70%;
+
+  &__header {
+    font-size: $font-size-xl;
+    font-weight: bold;
+  }
+
+  &__searchbar {
+    margin-top: 10rem;
+  }
+
+  &__patients {
+    margin-top: 1rem;
+    max-width: 160rem;
+  }
+}

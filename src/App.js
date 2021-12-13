@@ -4,31 +4,30 @@ import "./App.scss";
 import Register from "./Pages/Authentication/registerPage";
 import Login from "./Pages/Authentication/loginPage";
 import DashboardHandProfile from "./Pages/Dasboard-handProfile/DashboardHandPofile";
-import Model from "./Components/HandVisualisatie/HandVisualisatie";
+import PatientsOverview from "./Pages/Patients-overview/PatientsOverview";
+
 //Modules
 import { Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
+import { DataProvider } from "./context/DataContext";
 
 function App() {
   return (
     <Suspense fallback={<h1>Loading...</h1>}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<DashboardHandProfile />} />
-          <Route path="/hand" element={<Model />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-        </Routes>
-      </BrowserRouter>
+      <AuthProvider>
+        <DataProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/patients" element={<PatientsOverview />} />
+              <Route path="/dashboard" element={<DashboardHandProfile />} />
+            </Routes>
+          </BrowserRouter>
+        </DataProvider>
+      </AuthProvider>
     </Suspense>
-
-    // <div className="row center-lg">
-    //   <div className="col-lg-8">
-    //     {/* TODO: Revert to login page */}
-    //     {/* <Login /> */}
-
-    //   </div>
-    // </div>
   );
 }
 
