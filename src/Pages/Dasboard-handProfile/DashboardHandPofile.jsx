@@ -2,6 +2,8 @@ import React from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import Logo from "../../Static/images/rfLogo.png";
 
+import HandVisualisatie from "../../Components/HandVisualisatie/HandVisualisatie";
+
 export default class DashboardHandProfile extends React.Component {
   render() {
     return (
@@ -18,7 +20,7 @@ export default class DashboardHandProfile extends React.Component {
 
             <div className="dashboard__hand col-lg-3">
               <div className="row dashboard__hand__handView">
-                HAND VIEW PLACEHOLDER
+                <HandVisualisatie />
               </div>
               <div className="row dashboard__hand__handSelect">
                 HAND SELECT PLACEHOLDER
