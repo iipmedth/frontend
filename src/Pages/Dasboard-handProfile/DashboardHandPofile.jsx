@@ -3,6 +3,7 @@ import Navbar from "../../Components/Navbar/Navbar";
 import PatientDataSection from "../../Components/PatientDataSection/PatientDataSection";
 import { DataContext } from "../../context/DataContext";
 import Logo from "../../Static/images/rfLogo.png";
+import HandVisualisatie from "../../Components/HandVisualisatie/HandVisualisatie";
 
 const DashboardHandProfile = () => {
   const { selectedPatient } = useContext(DataContext);
@@ -24,7 +25,7 @@ const DashboardHandProfile = () => {
 
           <div className="dashboard__hand col-lg-3">
             <div className="row dashboard__hand__handView">
-              HAND VIEW PLACEHOLDER
+              <HandVisualisatie />
             </div>
             <div className="row dashboard__hand__handSelect">
               HAND SELECT PLACEHOLDER
