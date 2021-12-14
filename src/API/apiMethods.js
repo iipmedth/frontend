@@ -100,3 +100,19 @@ export const fetchPatients = async () => {
     return null;
   }
 };
+
+export const fetchDataCount = async (patient_id, hand) => {
+  try {
+    let data = null;
+    await fetch(BASE_URL + "measure/count/" + patient_id + "/" + hand, {
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+    }).then((response) => {
+      data = response.json();
+    });
+    return data;
+  } catch (err) {
+    // TODO handle error
+    console.log(err);
+  }
+};

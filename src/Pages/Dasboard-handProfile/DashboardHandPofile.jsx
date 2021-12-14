@@ -1,4 +1,5 @@
 import React, { useEffect, useContext } from "react";
+import DataInfoSection from "../../Components/DataInfoSection/DataInfoSection";
 import Navbar from "../../Components/Navbar/Navbar";
 import PatientDataSection from "../../Components/PatientDataSection/PatientDataSection";
 import { DataContext } from "../../context/DataContext";
@@ -39,7 +40,7 @@ const DashboardHandProfile = () => {
                 <PatientDataSection patient={selectedPatient} />
               </div>
               <div className="box dashboard__data__header__dataInfo">
-                DATA INFO PLACEHOLDER
+                <DataInfoSection patient={selectedPatient} />
               </div>
               <img
                 className="box dashboard__data__header__logo"
