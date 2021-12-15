@@ -78,6 +78,7 @@ export const fetchUserData = async () => {
     });
     return data;
   } catch (err) {
+    console.log(err);
     return null;
   }
 };
@@ -97,6 +98,7 @@ export const fetchPatients = async () => {
     });
     return data;
   } catch (err) {
+    console.log(err);
     return null;
   }
 };
