@@ -5,6 +5,7 @@ import PatientDataSection from "../../Components/PatientDataSection/PatientDataS
 import { DataContext } from "../../context/DataContext";
 import Logo from "../../Static/images/rfLogo.png";
 import HandVisualisatie from "../../Components/HandVisualisatie/HandVisualisatie";
+import PercentileTable from "../../Components/PercentileTable/PercentileTable";
 
 const DashboardHandProfile = () => {
   const { selectedPatient } = useContext(DataContext);
@@ -19,7 +20,7 @@ const DashboardHandProfile = () => {
         <Navbar content="dashboard" />
       </div>
 
-      <div className="col-lg">
+      <div className="col-lg test">
         <h1 className="row dashboard__header">Hand profile</h1>
         <div className="row dashboard__inner">
           {/* HAND VISUALISATION */}
@@ -51,7 +52,7 @@ const DashboardHandProfile = () => {
             </div>
             <div className="row dashboard__data__body">
               <div className="box dashboard__data__body__graph">
-                GRAPH PLACEHOLDER
+                <PercentileTable />
               </div>
             </div>
           </div>

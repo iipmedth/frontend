@@ -6,6 +6,10 @@
   background-color: $main-background;
 }
 
+.test {
+  height: 100%;
+}
+
 .dashboard__header {
   font-size: $font-size-xl;
   font-weight: bold;
@@ -33,6 +37,7 @@
 }
 
 .dashboard__data {
+  height: 100%;
   &__header {
     height: 15%;
     padding: 1.5rem;
@@ -67,9 +72,12 @@
 }
 
 .dashboard__data__body__graph {
+  position: relative;
   width: 100%;
+  max-height: 100%;
   padding: 2rem;
   border-radius: 1rem;
+  overflow: auto;
   background-color: $main-white;
 }
 

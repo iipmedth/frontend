@@ -1,0 +1,17 @@
+.percentileTable {
+  width: 100%;
+  &__row {
+    border: 1px solid grey;
+    font-size: $font-size-regular;
+    font-weight: bold;
+    &__item {
+      width: 3rem;
+      border: 1px solid grey;
+      text-align: center;
+
+      &--lead {
+        padding: 1rem;
+      }
+    }
+  }
+}
