@@ -11,7 +11,7 @@ export const login = async (email, password) => {
     let authenticated = false;
     await fetch(BASE_URL + "login", {
       method: "POST",
-      credentials: "include",
+      credentials: "same-origin",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
     }).then((res) => {
@@ -32,7 +32,7 @@ export const logout = async () => {
   await fetch(BASE_URL + "logout", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    credentials: "include",
+    credentials: "same-origin",
   });
   window.location.replace("/");
 };
@@ -72,7 +72,7 @@ export const fetchUserData = async () => {
     let data = null;
     await fetch(BASE_URL + "user", {
       headers: { "Content-Type": "application/json" },
-      credentials: "include",
+      credentials: "same-origin",
     }).then((response) => {
       data = response.json();
     });
@@ -91,7 +91,7 @@ export const fetchPatients = async () => {
     let data = null;
     await fetch(BASE_URL + "therapist/patients", {
       headers: { "Content-Type": "application/json" },
-      credentials: "include",
+      credentials: "same-origin",
     }).then((response) => {
       data = response.json();
     });
