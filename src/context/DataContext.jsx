@@ -3,6 +3,7 @@ import {
   fetchUserData,
   fetchPatients,
   fetchDataCount,
+  fetchPatientHandPercentiles,
 } from "../API/apiMethods";
 
 export const DataContext = createContext();
@@ -12,6 +13,7 @@ export const DataProvider = ({ children }) => {
   const [patients, setPatients] = useState(null);
   const [dataEntryCount, setDataEntryCount] = useState(null);
   const [selectedPatient, setSelectedPatient] = useState(null);
+  const [patientHandPercentiles, setPatientHandPercentiles] = useState(null);
 
   useEffect(() => {
     userDataSetter();
@@ -21,6 +23,7 @@ export const DataProvider = ({ children }) => {
   useEffect(() => {
     if (selectedPatient) {
       dataEntrySetter();
+      patientHandPercentilesSetter();
     }
   }, [selectedPatient]);
 
@@ -40,8 +43,15 @@ export const DataProvider = ({ children }) => {
     });
   };
 
+  const patientHandPercentilesSetter = async () => {
+    await fetchPatientHandPercentiles(selectedPatient.user_id, "left").then(
+      (res) => {
+        setPatientHandPercentiles(res);
+      }
+    );
+  };
+
   const dataEntrySetter = async () => {
-    console.log("test : " + selectedPatient.user_id);
     await fetchDataCount(selectedPatient.user_id, "left").then((res) => {
       setDataEntryCount(res);
     });
@@ -56,6 +66,7 @@ export const DataProvider = ({ children }) => {
         patients,
         setPatients,
         dataEntryCount,
+        patientHandPercentiles,
       }}
     >
       {children}

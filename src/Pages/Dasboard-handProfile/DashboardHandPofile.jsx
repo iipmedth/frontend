@@ -8,10 +8,11 @@ import HandVisualisatie from "../../Components/HandVisualisatie/HandVisualisatie
 import PercentileTable from "../../Components/PercentileTable/PercentileTable";
 
 const DashboardHandProfile = () => {
-  const { selectedPatient } = useContext(DataContext);
+  const { selectedPatient, patientHandPercentiles } = useContext(DataContext);
   useEffect(() => {
     console.log(selectedPatient);
-  }, [selectedPatient]);
+    console.log(patientHandPercentiles);
+  }, [selectedPatient, patientHandPercentiles]);
 
   return (
     <div className="row dashboard">
@@ -52,7 +53,7 @@ const DashboardHandProfile = () => {
             </div>
             <div className="row dashboard__data__body">
               <div className="box dashboard__data__body__graph">
-                <PercentileTable />
+                <PercentileTable percentiles={patientHandPercentiles} />
               </div>
             </div>
           </div>

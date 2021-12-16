@@ -1,16 +1,54 @@
 .percentileTable {
   width: 100%;
+  user-select: none;
+
+  &__header {
+    text-align: center;
+    font-size: $font-size-s;
+    font-weight: bold;
+    padding: 1rem;
+    background-color: $bg-light-grey;
+    border-right: 1px solid $light-grey;
+    border-left: 1px solid $light-grey;
+    border-top: 1px solid $light-grey;
+  }
+
   &__row {
-    border: 1px solid grey;
+    border: 1px solid $light-grey;
     font-size: $font-size-regular;
     font-weight: bold;
+
     &__item {
       width: 3rem;
-      border: 1px solid grey;
+      border: 1px solid $light-grey;
       text-align: center;
+
+      &--red {
+        background-color: $main-red;
+      }
+
+      &--yellow {
+        background-color: $main-yellow;
+      }
+
+      &--green {
+        background-color: $main-green;
+      }
+
+      &--active {
+        cursor: pointer;
+      }
 
       &--lead {
         padding: 1rem;
+        user-select: none;
+        transition: all ease 0.25s;
+
+        &:hover {
+          cursor: pointer;
+          transition: all ease 0.25s;
+          border: 1px solid $dark-grey;
+        }
       }
     }
   }
