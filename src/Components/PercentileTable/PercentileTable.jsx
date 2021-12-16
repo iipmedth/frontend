@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactTooltip from "react-tooltip";
 
 const PercentileTable = (props) => {
   let tableRows = [];
-
+  const [selectedIndex, setSelectedIndex] = useState(null);
   let measurements = [];
   if (props.percentiles) {
     measurements = [
@@ -86,10 +86,26 @@ const PercentileTable = (props) => {
     }
   };
 
+  const measurementClickHandler = (index) => {
+    setSelectedIndex(index);
+
+    // DO STUFF
+    console.log(measurements[index]);
+  };
+
   measurements.map((item, index) => {
     tableRows.push(
       <tr className="percentileTable__row">
-        <td className="percentileTable__row__item--lead">{item.name}</td>
+        <td
+          onClick={() => measurementClickHandler(index)}
+          className={
+            selectedIndex === index
+              ? "percentileTable__row__item__lead--active"
+              : "percentileTable__row__item__lead"
+          }
+        >
+          {item.name}
+        </td>
         <td className="percentileTable__row__item percentileTable__row__item--red">
           {percentileChecker(5, item.measure)}
         </td>

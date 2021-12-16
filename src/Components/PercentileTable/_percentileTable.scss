@@ -39,14 +39,19 @@
         cursor: pointer;
       }
 
-      &--lead {
+      &__lead {
         padding: 1rem;
-        user-select: none;
-        transition: all ease 0.25s;
 
+        &--active {
+          border: 2px solid $main-blue;
+          padding: 1rem;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
         &:hover {
           cursor: pointer;
-          transition: all ease 0.25s;
           border: 1px solid $dark-grey;
         }
       }
