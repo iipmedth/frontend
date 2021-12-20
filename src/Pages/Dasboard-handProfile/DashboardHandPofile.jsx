@@ -1,15 +1,20 @@
 import React, { useEffect, useContext } from "react";
+import DataInfoSection from "../../Components/DataInfoSection/DataInfoSection";
 import Navbar from "../../Components/Navbar/Navbar";
 import PatientDataSection from "../../Components/PatientDataSection/PatientDataSection";
 import { DataContext } from "../../context/DataContext";
 import Logo from "../../Static/images/rfLogo.png";
 import HandVisualisatie from "../../Components/HandVisualisatie/HandVisualisatie";
+import PercentileTable from "../../Components/PercentileTable/PercentileTable";
+import ExportButton from "../../Components/ExportButton/ExportButton";
+import GraphInfoButton from "../../Components/GraphInfoButton/GraphInfoButton";
 
 const DashboardHandProfile = () => {
-  const { selectedPatient } = useContext(DataContext);
+  const { selectedPatient, patientHandPercentiles } = useContext(DataContext);
   useEffect(() => {
     console.log(selectedPatient);
-  }, [selectedPatient]);
+    console.log(patientHandPercentiles);
+  }, [selectedPatient, patientHandPercentiles]);
 
   return (
     <div className="row dashboard">
@@ -18,7 +23,7 @@ const DashboardHandProfile = () => {
         <Navbar content="dashboard" />
       </div>
 
-      <div className="col-lg">
+      <div className="col-lg test">
         <h1 className="row dashboard__header">Hand profile</h1>
         <div className="row dashboard__inner">
           {/* HAND VISUALISATION */}
@@ -39,7 +44,7 @@ const DashboardHandProfile = () => {
                 <PatientDataSection patient={selectedPatient} />
               </div>
               <div className="box dashboard__data__header__dataInfo">
-                DATA INFO PLACEHOLDER
+                <DataInfoSection patient={selectedPatient} />
               </div>
               <img
                 className="box dashboard__data__header__logo"
@@ -50,7 +55,18 @@ const DashboardHandProfile = () => {
             </div>
             <div className="row dashboard__data__body">
               <div className="box dashboard__data__body__graph">
-                GRAPH PLACEHOLDER
+                <div className="row">
+                  <div className="col-lg dashboard__data__body__graph__headerLeft">
+                    {/* Filter option here? */}
+                  </div>
+                  <div className="col-lg dashboard__data__body__graph__headerRight">
+                    <GraphInfoButton />
+                    <ExportButton />
+                  </div>
+                </div>
+                <div className="row">
+                  <PercentileTable percentiles={patientHandPercentiles} />
+                </div>
               </div>
             </div>
           </div>

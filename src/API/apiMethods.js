@@ -102,3 +102,47 @@ export const fetchPatients = async () => {
     return null;
   }
 };
+
+/**
+ * @description fetches hand percentiles of patients per hand
+ * @param {Integer} patient_id
+ * @param {String} hand
+ * @returns {JSON} object with hand percentiles
+ */
+export const fetchPatientHandPercentiles = async (patient_id, hand) => {
+  try {
+    let data = null;
+    await fetch(BASE_URL + "measure/percentiles/" + patient_id + "/" + hand, {
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+    }).then((response) => {
+      data = response.json();
+    });
+    return data;
+  } catch (err) {
+    // TODO handle error
+    console.error(err);
+  }
+};
+
+/**
+ * @description fetches count of amount of data entries
+ * @param {*} patient_id
+ * @param {*} hand
+ * @returns {JSON} object with count of measurements
+ */
+export const fetchDataCount = async (patient_id, hand) => {
+  try {
+    let data = null;
+    await fetch(BASE_URL + "measure/count/" + patient_id + "/" + hand, {
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+    }).then((response) => {
+      data = response.json();
+    });
+    return data;
+  } catch (err) {
+    // TODO handle error
+    console.error(err);
+  }
+};
