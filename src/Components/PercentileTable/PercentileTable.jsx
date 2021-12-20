@@ -169,29 +169,35 @@ const PercentileTable = (props) => {
 
   return (
     <table className="percentileTable">
-      <tr>
-        <td className="percentileTable__header"></td>
-        <td className="percentileTable__header"></td>
-        <td className="percentileTable__header">10</td>
-        <td className="percentileTable__header"></td>
-        <td className="percentileTable__header">20</td>
-        <td className="percentileTable__header"></td>
-        <td className="percentileTable__header">30</td>
-        <td className="percentileTable__header"></td>
-        <td className="percentileTable__header">40</td>
-        <td className="percentileTable__header"></td>
-        <td className="percentileTable__header">50</td>
-        <td className="percentileTable__header"></td>
-        <td className="percentileTable__header">60</td>
-        <td className="percentileTable__header"></td>
-        <td className="percentileTable__header">70</td>
-        <td className="percentileTable__header"></td>
-        <td className="percentileTable__header">80</td>
-        <td className="percentileTable__header"></td>
-        <td className="percentileTable__header">90</td>
-        <td className="percentileTable__header"></td>
-      </tr>
-      {tableRows}
+      <thead className="percentileTable__header">
+        <th>Hand Property</th>
+        <th colSpan="19">Percentiles</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td className="percentileTable__indicator"></td>
+          <td className="percentileTable__indicator"></td>
+          <td className="percentileTable__indicator">10</td>
+          <td className="percentileTable__indicator"></td>
+          <td className="percentileTable__indicator">20</td>
+          <td className="percentileTable__indicator"></td>
+          <td className="percentileTable__indicator">30</td>
+          <td className="percentileTable__indicator"></td>
+          <td className="percentileTable__indicator">40</td>
+          <td className="percentileTable__indicator"></td>
+          <td className="percentileTable__indicator">50</td>
+          <td className="percentileTable__indicator"></td>
+          <td className="percentileTable__indicator">60</td>
+          <td className="percentileTable__indicator"></td>
+          <td className="percentileTable__indicator">70</td>
+          <td className="percentileTable__indicator"></td>
+          <td className="percentileTable__indicator">80</td>
+          <td className="percentileTable__indicator"></td>
+          <td className="percentileTable__indicator">90</td>
+          <td className="percentileTable__indicator"></td>
+        </tr>
+        {tableRows}
+      </tbody>
     </table>
   );
 };
