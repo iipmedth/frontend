@@ -49,11 +49,11 @@
       }
 
       &__lead {
-        padding: 1rem;
+        padding: 0.9rem;
 
         &--active {
           border: 2px solid $main-blue;
-          padding: 1rem;
+          padding: 0.9rem;
 
           &:hover {
             cursor: pointer;

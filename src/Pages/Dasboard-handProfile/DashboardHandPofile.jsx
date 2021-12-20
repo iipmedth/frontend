@@ -6,6 +6,8 @@ import { DataContext } from "../../context/DataContext";
 import Logo from "../../Static/images/rfLogo.png";
 import HandVisualisatie from "../../Components/HandVisualisatie/HandVisualisatie";
 import PercentileTable from "../../Components/PercentileTable/PercentileTable";
+import ExportButton from "../../Components/ExportButton/ExportButton";
+import GraphInfoButton from "../../Components/GraphInfoButton/GraphInfoButton";
 
 const DashboardHandProfile = () => {
   const { selectedPatient, patientHandPercentiles } = useContext(DataContext);
@@ -53,7 +55,18 @@ const DashboardHandProfile = () => {
             </div>
             <div className="row dashboard__data__body">
               <div className="box dashboard__data__body__graph">
-                <PercentileTable percentiles={patientHandPercentiles} />
+                <div className="row">
+                  <div className="col-lg dashboard__data__body__graph__headerLeft">
+                    {/* Filter option here? */}
+                  </div>
+                  <div className="col-lg dashboard__data__body__graph__headerRight">
+                    <GraphInfoButton />
+                    <ExportButton />
+                  </div>
+                </div>
+                <div className="row">
+                  <PercentileTable percentiles={patientHandPercentiles} />
+                </div>
               </div>
             </div>
           </div>

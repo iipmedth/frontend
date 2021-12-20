@@ -1,0 +1,19 @@
+.exportButton {
+  margin-left: auto;
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+  background-color: $main-blue;
+  border: none;
+  color: $main-white;
+  border-radius: $border-radius;
+  align-items: center;
+  font-size: $font-size-regular;
+  transition: all ease 0.25s;
+
+  &:hover {
+    cursor: pointer;
+    transition: all ease 0.25s;
+    opacity: 0.5;
+  }
+}
