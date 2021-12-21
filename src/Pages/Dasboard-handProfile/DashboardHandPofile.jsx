@@ -8,13 +8,13 @@ import HandVisualisatie from "../../Components/HandVisualisatie/HandVisualisatie
 import PercentileTable from "../../Components/PercentileTable/PercentileTable";
 import ExportButton from "../../Components/ExportButton/ExportButton";
 import GraphInfoButton from "../../Components/GraphInfoButton/GraphInfoButton";
+import HandSelect from "../../Components/HandSelect/HandSelect";
+import LoadingOverlay from "../../Components/LoadingOverlay/LoadingOverlay";
 
 const DashboardHandProfile = () => {
-  const { selectedPatient, patientHandPercentiles } = useContext(DataContext);
-  useEffect(() => {
-    console.log(selectedPatient);
-    console.log(patientHandPercentiles);
-  }, [selectedPatient, patientHandPercentiles]);
+  const { selectedPatient, patientHandPercentiles, loading } =
+    useContext(DataContext);
+  useEffect(() => {}, [selectedPatient, patientHandPercentiles]);
 
   return (
     <div className="row dashboard">
@@ -33,7 +33,7 @@ const DashboardHandProfile = () => {
               <HandVisualisatie />
             </div>
             <div className="row dashboard__hand__handSelect">
-              HAND SELECT PLACEHOLDER
+              <HandSelect />
             </div>
           </div>
 
@@ -55,6 +55,7 @@ const DashboardHandProfile = () => {
             </div>
             <div className="row dashboard__data__body">
               <div className="box dashboard__data__body__graph">
+                {loading && <LoadingOverlay />}
                 <div className="row">
                   <div className="col-lg dashboard__data__body__graph__headerLeft">
                     {/* Filter option here? */}
