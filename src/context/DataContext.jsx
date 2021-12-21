@@ -14,6 +14,8 @@ export const DataProvider = ({ children }) => {
   const [dataEntryCount, setDataEntryCount] = useState(null);
   const [selectedPatient, setSelectedPatient] = useState(null);
   const [patientHandPercentiles, setPatientHandPercentiles] = useState(null);
+  const [selectedHand, setSelectedHand] = useState("left");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     userDataSetter();
@@ -25,7 +27,7 @@ export const DataProvider = ({ children }) => {
       dataEntrySetter();
       patientHandPercentilesSetter();
     }
-  }, [selectedPatient]);
+  }, [selectedPatient, selectedHand]);
 
   /**
    * @TODO Delete logs after testing
@@ -44,15 +46,18 @@ export const DataProvider = ({ children }) => {
   };
 
   const patientHandPercentilesSetter = async () => {
-    await fetchPatientHandPercentiles(selectedPatient.user_id, "left").then(
-      (res) => {
-        setPatientHandPercentiles(res);
-      }
-    );
+    setLoading(true);
+    await fetchPatientHandPercentiles(
+      selectedPatient.user_id,
+      selectedHand
+    ).then((res) => {
+      setPatientHandPercentiles(res);
+    });
+    setLoading(false);
   };
 
   const dataEntrySetter = async () => {
-    await fetchDataCount(selectedPatient.user_id, "left").then((res) => {
+    await fetchDataCount(selectedPatient.user_id, selectedHand).then((res) => {
       setDataEntryCount(res);
     });
   };
@@ -67,6 +72,9 @@ export const DataProvider = ({ children }) => {
         setPatients,
         dataEntryCount,
         patientHandPercentiles,
+        selectedHand,
+        setSelectedHand,
+        loading,
       }}
     >
       {children}

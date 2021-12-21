@@ -6,12 +6,14 @@ const DataInfoSection = (props) => {
   //Cap first letter of sex/gender
   sex = sex[0].toUpperCase() + sex.substring(1);
 
-  const { dataEntryCount } = useContext(DataContext);
+  const { dataEntryCount, selectedHand } = useContext(DataContext);
 
   return (
     <div className="dataInfo">
       <h1 className="dataInfo__header">Data</h1>
-      <p className="dataInfo__text">Comparison group: {sex} | Left hand</p>
+      <p className="dataInfo__text">
+        Comparison group: {sex} | {selectedHand} hand
+      </p>
       <p className="dataInfo__text">Data entries: {dataEntryCount} </p>
     </div>
   );
