@@ -72,6 +72,14 @@ const PercentileTable = (props) => {
       measure % 5 >= 2.5
         ? parseInt(measure / 5) * 5 + 5
         : parseInt(measure / 5) * 5;
+
+    if (roundedInt > 95) {
+      roundedInt = 95;
+    }
+    if (roundedInt < 5) {
+      roundedInt = 5;
+    }
+
     if (fixedPercentile == roundedInt) {
       return (
         <div>
