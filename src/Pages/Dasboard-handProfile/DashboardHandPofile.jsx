@@ -10,9 +10,10 @@ import ExportButton from "../../Components/ExportButton/ExportButton";
 import GraphInfoButton from "../../Components/GraphInfoButton/GraphInfoButton";
 import HandSelect from "../../Components/HandSelect/HandSelect";
 import LoadingOverlay from "../../Components/LoadingOverlay/LoadingOverlay";
+import MeasurementDropdown from "../../Components/MeasurementDropdown/MeasurementDropdown";
 
 const DashboardHandProfile = () => {
-  const { selectedPatient, patientHandPercentiles, loading } =
+  const { selectedPatient, patientHandPercentiles, loading, selectedFilter } =
     useContext(DataContext);
   useEffect(() => {}, [selectedPatient, patientHandPercentiles]);
 
@@ -58,7 +59,7 @@ const DashboardHandProfile = () => {
                 {loading && <LoadingOverlay />}
                 <div className="row">
                   <div className="col-lg dashboard__data__body__graph__headerLeft">
-                    {/* Filter option here? */}
+                    <MeasurementDropdown />
                   </div>
                   <div className="col-lg dashboard__data__body__graph__headerRight">
                     <GraphInfoButton />
@@ -66,7 +67,10 @@ const DashboardHandProfile = () => {
                   </div>
                 </div>
                 <div className="row">
-                  <PercentileTable percentiles={patientHandPercentiles} />
+                  <PercentileTable
+                    percentiles={patientHandPercentiles}
+                    selectedFilter={selectedFilter}
+                  />
                 </div>
               </div>
             </div>
