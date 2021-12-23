@@ -4,7 +4,7 @@ import { DataContext } from "../../context/DataContext";
 const DataInfoSection = (props) => {
   let sex = props.patient.gender;
   //Cap first letter of sex/gender
-  sex = sex[0].toUpperCase() + sex.substring(1);
+  sex = sex ? sex[0].toUpperCase() + sex.substring(1) : "";
 
   const { dataEntryCount, selectedHand } = useContext(DataContext);
 

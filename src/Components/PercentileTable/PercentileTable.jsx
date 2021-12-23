@@ -120,7 +120,7 @@ const PercentileTable = (props) => {
       roundedInt = 5;
     }
 
-    if (fixedPercentile == roundedInt) {
+    if (fixedPercentile === roundedInt) {
       return (
         <div>
           <ReactTooltip place="right" effect="solid" type="info" />
@@ -136,21 +136,17 @@ const PercentileTable = (props) => {
 
   const measurementClickHandler = (index) => {
     setSelectedIndex(index);
-
-    // DO STUFF
-    console.log(measurements[index]);
   };
 
   measurements.map((item, index) => {
     for (let option in item.options) {
-      console.log(item.options[option]);
       if (
         item.options[option] === props.selectedFilter ||
         (props.selectedFilter === "All fingers" && !item.rendered)
       ) {
         item.rendered = true;
         tableRows.push(
-          <tr className="percentileTable__row">
+          <tr key={index} className="percentileTable__row">
             <td
               onClick={() => measurementClickHandler(index)}
               className={
@@ -227,8 +223,10 @@ const PercentileTable = (props) => {
   return (
     <table className="percentileTable">
       <thead className="percentileTable__header">
-        <th>Hand Property</th>
-        <th colSpan="19">Percentiles</th>
+        <tr>
+          <th>Hand Property</th>
+          <th colSpan="19">Percentiles</th>
+        </tr>
       </thead>
       <tbody>
         <tr>

@@ -3,7 +3,7 @@
   user-select: none;
 
   &__header {
-    & > th {
+    & > tr > th {
       padding: 1rem;
       font-size: $font-size-regular;
       font-weight: bold;
