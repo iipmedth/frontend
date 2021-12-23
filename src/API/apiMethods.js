@@ -15,7 +15,6 @@ export const login = async (email, password) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
     }).then((res) => {
-      console.log(res);
       authenticated = res.status === 200 ? true : false;
     });
     return authenticated;

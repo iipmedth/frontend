@@ -25,10 +25,18 @@ export const DataProvider = ({ children }) => {
 
   useEffect(() => {
     if (selectedPatient) {
+      localStorage.setItem("selectedPatientID", selectedPatient.id);
       dataEntrySetter();
       patientHandPercentilesSetter();
+    } else {
+      for (let i in patients) {
+        let patientID = parseInt(localStorage.getItem("selectedPatientID"));
+        if (patients[i].patient_id === patientID) {
+          setSelectedPatient(patients[i].patient);
+        }
+      }
     }
-  }, [selectedPatient, selectedHand]);
+  }, [selectedPatient, selectedHand, patients]);
 
   /**
    * @TODO Delete logs after testing
