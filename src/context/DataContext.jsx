@@ -15,6 +15,7 @@ export const DataProvider = ({ children }) => {
   const [selectedPatient, setSelectedPatient] = useState(null);
   const [patientHandPercentiles, setPatientHandPercentiles] = useState(null);
   const [selectedHand, setSelectedHand] = useState("left");
+  const [selectedFilter, setSelectedFilter] = useState("All fingers");
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -75,6 +76,8 @@ export const DataProvider = ({ children }) => {
         selectedHand,
         setSelectedHand,
         loading,
+        selectedFilter,
+        setSelectedFilter,
       }}
     >
       {children}

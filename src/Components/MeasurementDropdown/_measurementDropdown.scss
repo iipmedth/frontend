@@ -1,0 +1,16 @@
+.measurementDropdown {
+  &__span {
+    font-size: $font-size-regular;
+    font-weight: bold;
+  }
+  &__dropdown {
+    margin: 1rem 0 0 0;
+    padding: 0;
+    font-size: $font-size-regular;
+    max-width: 20rem;
+    border-radius: $border-radius;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
