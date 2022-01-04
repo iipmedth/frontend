@@ -17,6 +17,7 @@ export const DataProvider = ({ children }) => {
   const [selectedHand, setSelectedHand] = useState("left");
   const [selectedFilter, setSelectedFilter] = useState("All fingers");
   const [loading, setLoading] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
     userDataSetter();
@@ -86,6 +87,8 @@ export const DataProvider = ({ children }) => {
         loading,
         selectedFilter,
         setSelectedFilter,
+        modalVisible,
+        setModalVisible,
       }}
     >
       {children}

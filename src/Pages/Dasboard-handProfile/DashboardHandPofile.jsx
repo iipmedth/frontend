@@ -11,14 +11,21 @@ import GraphInfoButton from "../../Components/GraphInfoButton/GraphInfoButton";
 import HandSelect from "../../Components/HandSelect/HandSelect";
 import LoadingOverlay from "../../Components/LoadingOverlay/LoadingOverlay";
 import MeasurementDropdown from "../../Components/MeasurementDropdown/MeasurementDropdown";
+import InfoModal from "../../Components/InfoModal/InfoModal";
 
 const DashboardHandProfile = () => {
-  const { selectedPatient, patientHandPercentiles, loading, selectedFilter } =
-    useContext(DataContext);
+  const {
+    selectedPatient,
+    patientHandPercentiles,
+    loading,
+    selectedFilter,
+    modalVisible,
+  } = useContext(DataContext);
   useEffect(() => {}, [selectedPatient, patientHandPercentiles]);
 
   return (
     <div className="row dashboard">
+      <InfoModal visible={modalVisible} />
       {/* NAVBAR */}
       <div className="col-lg-2">
         <Navbar content="dashboard" />
