@@ -10,81 +10,69 @@ import ExportButton from "../../Components/ExportButton/ExportButton";
 import GraphInfoButton from "../../Components/GraphInfoButton/GraphInfoButton";
 import HandSelect from "../../Components/HandSelect/HandSelect";
 import LoadingOverlay from "../../Components/LoadingOverlay/LoadingOverlay";
-import MeasurementDropdown from "../../Components/MeasurementDropdown/MeasurementDropdown";
-import InfoModal from "../../Components/InfoModal/InfoModal";
 
 const DashboardHandProfile = () => {
-  const {
-    selectedPatient,
-    patientHandPercentiles,
-    loading,
-    selectedFilter,
-    modalVisible,
-  } = useContext(DataContext);
+  const { selectedPatient, patientHandPercentiles, loading } =
+    useContext(DataContext);
   useEffect(() => {}, [selectedPatient, patientHandPercentiles]);
 
   return (
     <div className="row dashboard">
-      <InfoModal visible={modalVisible} />
       {/* NAVBAR */}
       <div className="col-lg-2">
         <Navbar content="dashboard" />
       </div>
-      {selectedPatient != null && (
-        <div className="col-lg test">
-          <h1 className="row dashboard__header">Hand profile</h1>
-          <div className="row dashboard__inner">
-            {/* HAND VISUALISATION */}
 
-            <div className="dashboard__hand col-lg-3">
-              <div className="row dashboard__hand__handView">
-                <HandVisualisatie />
-              </div>
-              <div className="row dashboard__hand__handSelect">
-                <HandSelect />
-              </div>
+      <div className="col-lg test">
+        <h1 className="row dashboard__header">Hand profile</h1>
+        <div className="row dashboard__inner">
+          {/* HAND VISUALISATION */}
+
+          <div className="dashboard__hand col-lg-3">
+            <div className="row dashboard__hand__handView">
+              <HandVisualisatie />
             </div>
+            <div className="row dashboard__hand__handSelect">
+              <HandSelect />
+            </div>
+          </div>
 
-            {/* DATA */}
-            <div className=" col-lg dashboard__data">
-              <div className="row dashboard__data__header">
-                <div className="box dashboard__data__header__patientData">
-                  <PatientDataSection patient={selectedPatient} />
-                </div>
-                <div className="box dashboard__data__header__dataInfo">
-                  <DataInfoSection patient={selectedPatient} />
-                </div>
-                <img
-                  className="box dashboard__data__header__logo"
-                  src={Logo}
-                  alt="LOGO"
-                />
-                {/* <div className="box dashboard__data__header__logo"></div> */}
+          {/* DATA */}
+          <div className=" col-lg dashboard__data">
+            <div className="row dashboard__data__header">
+              <div className="box dashboard__data__header__patientData">
+                <PatientDataSection patient={selectedPatient} />
               </div>
-              <div className="row dashboard__data__body">
-                <div className="box dashboard__data__body__graph">
-                  {loading && <LoadingOverlay />}
-                  <div className="row">
-                    <div className="col-lg dashboard__data__body__graph__headerLeft">
-                      <MeasurementDropdown />
-                    </div>
-                    <div className="col-lg dashboard__data__body__graph__headerRight">
-                      <GraphInfoButton />
-                      <ExportButton />
-                    </div>
+              <div className="box dashboard__data__header__dataInfo">
+                <DataInfoSection patient={selectedPatient} />
+              </div>
+              <img
+                className="box dashboard__data__header__logo"
+                src={Logo}
+                alt="LOGO"
+              />
+              {/* <div className="box dashboard__data__header__logo"></div> */}
+            </div>
+            <div className="row dashboard__data__body">
+              <div className="box dashboard__data__body__graph">
+                {loading && <LoadingOverlay />}
+                <div className="row">
+                  <div className="col-lg dashboard__data__body__graph__headerLeft">
+                    {/* Filter option here? */}
                   </div>
-                  <div className="row">
-                    <PercentileTable
-                      percentiles={patientHandPercentiles}
-                      selectedFilter={selectedFilter}
-                    />
+                  <div className="col-lg dashboard__data__body__graph__headerRight">
+                    <GraphInfoButton />
+                    <ExportButton />
                   </div>
+                </div>
+                <div className="row">
+                  <PercentileTable percentiles={patientHandPercentiles} />
                 </div>
               </div>
             </div>
           </div>
         </div>
-      )}
+      </div>
     </div>
   );
 };

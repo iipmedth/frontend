@@ -15,9 +15,7 @@ export const DataProvider = ({ children }) => {
   const [selectedPatient, setSelectedPatient] = useState(null);
   const [patientHandPercentiles, setPatientHandPercentiles] = useState(null);
   const [selectedHand, setSelectedHand] = useState("left");
-  const [selectedFilter, setSelectedFilter] = useState("All fingers");
   const [loading, setLoading] = useState(false);
-  const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
     userDataSetter();
@@ -26,18 +24,10 @@ export const DataProvider = ({ children }) => {
 
   useEffect(() => {
     if (selectedPatient) {
-      localStorage.setItem("selectedPatientID", selectedPatient.id);
       dataEntrySetter();
       patientHandPercentilesSetter();
-    } else {
-      for (let i in patients) {
-        let patientID = parseInt(localStorage.getItem("selectedPatientID"));
-        if (patients[i].patient_id === patientID) {
-          setSelectedPatient(patients[i].patient);
-        }
-      }
     }
-  }, [selectedPatient, selectedHand, patients]);
+  }, [selectedPatient, selectedHand]);
 
   /**
    * @TODO Delete logs after testing
@@ -85,10 +75,6 @@ export const DataProvider = ({ children }) => {
         selectedHand,
         setSelectedHand,
         loading,
-        selectedFilter,
-        setSelectedFilter,
-        modalVisible,
-        setModalVisible,
       }}
     >
       {children}

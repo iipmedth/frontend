@@ -11,6 +11,7 @@ const LoginForm = () => {
 
     await login(email, password).then((authSuccess) => {
       if (authSuccess) {
+        console.log("login successfull");
         window.location.assign("/patients");
       }
     });
