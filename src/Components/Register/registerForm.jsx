@@ -1,61 +1,99 @@
 import React, { useState } from "react";
-import { Navigate } from "react-router-dom";
-import { URL } from "../../GlobalStyles/variables/variables";
+// ibrary's
+import { Navigate, Link, useNavigate } from "react-router-dom";
+import { Formik, Form, Field, ErrorMessage, setSubmitting } from "formik";
+import * as Yup from "yup";
+
+// Imported Variables
+import { URL, TEST_URL } from "../../GlobalStyles/variables/variables";
+import axios from "axios";
+
+const validationSchema = Yup.object({
+  name: Yup.string().required("Required"),
+  email: Yup.string().email("Invalid email format").required("Required"),
+  password: Yup.string()
+    .required("Required")
+    .min(6, "Password is too short - should be 6 chars minimum"),
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref("password")], "Mismatched passwords")
+    .required("Please confirm your password"),
+});
 
 const RegisterForm = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [redirect, setRedirect] = useState(false);
+  const navigate = useNavigate();
 
-  const submit = async (e) => {
-    e.preventDefault();
-    await fetch(URL + "register", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        name: name,
-        email: email,
-        password: password,
-        role: "Therapist",
-      }),
-    });
-
-    setRedirect(true);
+  const registerHandler = async (values, { setSubmitting }) => {
+    const payload = {
+      name: values.name,
+      email: values.email,
+      password: values.password,
+      role: "Therapist",
+    };
+    try {
+      const response = await axios.post(TEST_URL + "register", payload, {
+        withCredentials: true,
+      });
+      if (response.status === 201) {
+        navigate("/");
+      }
+    } catch (error) {
+      if (error.reponse) {
+        console.log(error.reponse.status);
+        console.log(error.reponse.data);
+      }
+    } finally {
+      setSubmitting(false);
+    }
   };
-
-  if (redirect) {
-    return <Navigate to="/" />;
-  }
   return (
-    <div className="authContainer">
-      <div className="authForm">
-        <form onSubmit={submit}>
-          <h2 className="authForm__heading">Register</h2>
-          <label className="authForm__label">Name</label>
-          <input
-            placeholder="Name"
-            required
-            onChange={(e) => setName(e.target.value)}
-          />
-          <label className="authForm__label">Email</label>
-          <input
-            type="email"
-            placeholder="Email"
-            required
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <label className="authForm__label">Password</label>
-          <input
-            type="password"
-            placeholder="Password"
-            required
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button type="submit">Register</button>
-        </form>
-      </div>
-    </div>
+    <Formik
+      initialValues={{
+        name: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+      }}
+      onSubmit={registerHandler}
+      validationSchema={validationSchema}
+    >
+      {({ handleSubmit, preventDefault }) => (
+        <div className="authContainer">
+          <div className="authForm">
+            <Form onSubmit={(preventDefault, handleSubmit)}>
+              <h2 className="authForm__heading">Register</h2>
+              <label className="authForm__label">Full name</label>
+              <Field label="name" name="name" type="input" placeholder="Name" />
+              <div className="authForm__error">
+                <ErrorMessage name="name" />
+              </div>
+              <label className="authForm__label">Email</label>
+              <Field name="email" type="email" placeholder="Email" />
+              <div className="authForm__error">
+                <ErrorMessage name="email" />
+              </div>
+              <label className="authForm__label">Password</label>
+              <Field name="password" type="password" placeholder="Password" />
+              <div className="authForm__error">
+                <ErrorMessage name="password" />
+              </div>
+              <label className="authForm__label">Confirm password</label>
+              <Field
+                name="confirmPassword"
+                type="password"
+                placeholder="Confirm password"
+              />
+              <div className="authForm__error">
+                <ErrorMessage name="confirmPassword" />
+              </div>
+              <button type="submit">Register</button>
+              <Link className="authForm__link" to="/">
+                Already have an account? Click here to login
+              </Link>
+            </Form>
+          </div>
+        </div>
+      )}
+    </Formik>
   );
 };
 

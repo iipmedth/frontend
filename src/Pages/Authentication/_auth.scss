@@ -29,6 +29,30 @@
     font-weight: 500;
   }
 
+  &__error {
+    color: red;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: red;
+    margin-left: 0.8rem;
+    font-size: 1.2rem;
+  }
+
+  &__link {
+    color: blue;
+    margin-top: 0;
+    text-align: center;
+    margin: 4rem 0;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: 0.5s ease;
+  }
+
+  &__link:hover {
+    color: black;
+    text-decoration: underline;
+  }
+
   form {
     display: flex;
     justify-content: center;
@@ -41,7 +65,7 @@
     padding: 1.6rem;
     border: #ccc 0.05rem solid;
     border-radius: 0.8rem;
-    margin-bottom: 3.2rem;
+    margin-bottom: 1.5rem;
     width: 36.8rem;
     font-size: 1.6rem;
     line-height: 2.4rem;
@@ -62,8 +86,9 @@
     color: white;
     font-size: 1.6rem;
     font-weight: 400;
-    margin-bottom: 5rem;
     transition: 0.2s ease;
+    cursor: pointer;
+    margin-top: 1rem;
   }
 
   button:hover {
