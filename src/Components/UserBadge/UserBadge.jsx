@@ -5,9 +5,7 @@ import { DataContext } from "../../context/DataContext";
 const UserBadge = () => {
   const { userData } = useContext(DataContext);
 
-  useEffect(() => {
-    console.log(userData);
-  }, [userData]);
+  useEffect(() => {}, [userData]);
 
   return (
     <div className="userBadge">
