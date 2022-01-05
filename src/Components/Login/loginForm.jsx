@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { Link } from "react-router-dom";
 
 const LoginForm = () => {
   const { login } = useContext(AuthContext);
@@ -42,6 +43,10 @@ const LoginForm = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
             <button type="submit">Sign in</button>
+
+            <Link className="authForm__link" to="/register">
+              Dont have an account? Click here to register
+            </Link>
           </form>
         </div>
       </div>
