@@ -4,6 +4,7 @@ import {
   fetchPatients,
   fetchDataCount,
   fetchPatientHandPercentiles,
+  fetchMeasurements,
 } from "../API/apiMethods";
 
 export const DataContext = createContext();
@@ -18,6 +19,7 @@ export const DataProvider = ({ children }) => {
   const [selectedFilter, setSelectedFilter] = useState("All fingers");
   const [loading, setLoading] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
+  const [patientMeasurements, setPatientMeasurements] = useState(null);
 
   useEffect(() => {
     userDataSetter();
@@ -29,6 +31,7 @@ export const DataProvider = ({ children }) => {
       localStorage.setItem("selectedPatientID", selectedPatient.id);
       dataEntrySetter();
       patientHandPercentilesSetter();
+      patientMeasurmentSetter();
     } else {
       for (let i in patients) {
         let patientID = parseInt(localStorage.getItem("selectedPatientID"));
@@ -72,6 +75,14 @@ export const DataProvider = ({ children }) => {
     });
   };
 
+  const patientMeasurmentSetter = async () => {
+    await fetchMeasurements(selectedPatient.user_id, selectedHand).then(
+      (res) => {
+        setPatientMeasurements(res);
+      }
+    );
+  };
+
   return (
     <DataContext.Provider
       value={{
@@ -89,6 +100,7 @@ export const DataProvider = ({ children }) => {
         setSelectedFilter,
         modalVisible,
         setModalVisible,
+        patientMeasurements,
       }}
     >
       {children}

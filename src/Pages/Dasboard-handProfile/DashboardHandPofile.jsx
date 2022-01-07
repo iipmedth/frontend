@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import DataInfoSection from "../../Components/DataInfoSection/DataInfoSection";
 import Navbar from "../../Components/Navbar/Navbar";
 import PatientDataSection from "../../Components/PatientDataSection/PatientDataSection";
@@ -22,6 +22,7 @@ const DashboardHandProfile = () => {
     modalVisible,
   } = useContext(DataContext);
   useEffect(() => {}, [selectedPatient, patientHandPercentiles]);
+  const [property, setProperty] = useState(null);
 
   return (
     <div className="row dashboard">
@@ -38,7 +39,7 @@ const DashboardHandProfile = () => {
 
             <div className="dashboard__hand col-lg-3">
               <div className="row dashboard__hand__handView">
-                <HandVisualisatie />
+                <HandVisualisatie property={property} />
               </div>
               <div className="row dashboard__hand__handSelect">
                 <HandSelect />
@@ -77,6 +78,7 @@ const DashboardHandProfile = () => {
                     <PercentileTable
                       percentiles={patientHandPercentiles}
                       selectedFilter={selectedFilter}
+                      changeIndex={(index) => setProperty(index)}
                     />
                   </div>
                 </div>
