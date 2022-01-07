@@ -136,6 +136,7 @@ const PercentileTable = (props) => {
 
   const measurementClickHandler = (index) => {
     setSelectedIndex(index);
+    props.changeIndex(index);
   };
 
   measurements.map((item, index) => {

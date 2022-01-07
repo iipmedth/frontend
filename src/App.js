@@ -5,6 +5,7 @@ import Register from "./Pages/Authentication/registerPage";
 import Login from "./Pages/Authentication/loginPage";
 import DashboardHandProfile from "./Pages/Dasboard-handProfile/DashboardHandPofile";
 import PatientsOverview from "./Pages/Patients-overview/PatientsOverview";
+import { r3f } from "@react-three/drei";
 
 //Modules
 import { Suspense } from "react";
@@ -14,7 +15,7 @@ import { DataProvider } from "./context/DataContext";
 
 function App() {
   return (
-    <Suspense fallback={<h1>Loading...</h1>}>
+    <Suspense fallback={<h1>Loading...</h1>} r3f>
       <AuthProvider>
         <DataProvider>
           <BrowserRouter>
