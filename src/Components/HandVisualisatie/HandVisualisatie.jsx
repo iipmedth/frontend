@@ -199,7 +199,7 @@ const HandVisualisatie = (props) => {
           <Stage />
         </Canvas>
 
-        {property ? (
+        {dataTitle ? (
           <div className="modelData__wrapper">
             <div className="modelData__container">
               <div className="modelData">
