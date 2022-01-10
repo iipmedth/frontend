@@ -38,8 +38,6 @@ const RegisterForm = () => {
       }
     } catch (error) {
       if (error.reponse) {
-        console.log(error.reponse.status);
-        console.log(error.reponse.data);
       }
     } finally {
       setSubmitting(false);

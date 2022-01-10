@@ -32,11 +32,7 @@ const HandVisualisatie = (props) => {
   const [hover, setHover] = useState(null);
 
   // States for colors in hand
-  const [pinky, setPinky] = useState("null");
-  const [ring, setRing] = useState("null");
-  const [middle, setMiddle] = useState("null");
-  const [index, setIndex] = useState("null");
-  const [thumb, setThumb] = useState("null");
+  const [fingerColor, setFingerColor] = useState([]);
 
   useEffect(() => {
     if (patientHandPercentiles) {
@@ -58,63 +54,44 @@ const HandVisualisatie = (props) => {
   }, [property]);
 
   useEffect(() => {
+    let newFingerArr = ["null", "null", "null", "null", "null"];
     if (patientHandPercentiles) {
-      const percentileColors = Object.values(patientHandPercentiles);
-      console.log(patientHandPercentiles);
-
-      if (selectedFilter == "Thumb") {
-        setIndex(percentileColors[4]);
-        setMiddle(percentileColors[5]);
-        setRing(percentileColors[6]);
-        setPinky(percentileColors[7]);
-      } else if (selectedFilter == "Index finger") {
-        setIndex("null");
-        setMiddle(percentileColors[8]);
-        setRing(percentileColors[9]);
-        setPinky(percentileColors[10]);
-      } else if (selectedFilter == "Middle finger") {
-        setIndex("null");
-        setMiddle("null");
-        setRing(percentileColors[11]);
-        setPinky(percentileColors[12]);
-      } else if (selectedFilter == "Ring finger") {
-        setIndex("null");
-        setMiddle("null");
-        setRing("null");
-        setPinky(percentileColors[13]);
-      } else if (selectedFilter == "Pinky") {
-        setIndex("null");
-        setMiddle("null");
-        setRing("null");
-        setPinky("null");
-      } else if (selectedFilter == "All fingers") {
-        setThumb("null");
-        setIndex("null");
-        setMiddle("null");
-        setRing("null");
-        setPinky("null");
+      for (let i = 1; i < 6; i++) {
+        if (dataTitle.includes(i)) {
+          newFingerArr[i] = percentile;
+          setFingerColor(newFingerArr);
+        } else {
+          setFingerColor(newFingerArr);
+        }
       }
     }
-  }, [selectedFilter]);
+  }, [dataTitle]);
 
   useEffect(() => {
     document.body.style.cursor = hover ? "pointer" : "auto";
   }, [hover]);
+
+  const modelText = (
+    <>
+      Click on a finger to filter on its data.
+      <span className="modelText--bold"> Filter on hover data?</span>
+    </>
+  );
 
   // Materials
   // Aurora 1 = Green
   // Aurora 2 = Light Green
   // Time Capsule = Orange
   // Hawaiian Passion 2 = Red
-  // Vera = Pink/SKin
+  // Vera = Pink/Skin
 
   return (
     <>
       <div className="model__wrapper">
         <div className="modelText">
           {hover !== null
-            ? `Click on the finger to filter on ${hover} data`
-            : null}
+            ? modelText
+            : `Click on a finger to filter on its data.`}
         </div>
         <Canvas>
           <group
@@ -142,13 +119,13 @@ const HandVisualisatie = (props) => {
               geometry={nodes.pinky_switchable.geometry}
               position={[0.03, 0, 0]}
               material={
-                pinky < 15 || pinky > 90
+                fingerColor[5] < 15 || fingerColor[5] > 90
                   ? materials["Hawaiian Passion 2"]
-                  : pinky <= 20 || pinky >= 80
+                  : fingerColor[5] <= 20 || fingerColor[5] >= 80
                   ? materials["Time Capsule"]
-                  : pinky > 20 || pinky < 80
+                  : fingerColor[5] > 20 || fingerColor[5] < 80
                   ? materials["Aurora 2"]
-                  : pinky == "null"
+                  : fingerColor[5] == "null"
                   ? materials.Vera
                   : materials.Vera
               }
@@ -157,13 +134,13 @@ const HandVisualisatie = (props) => {
               name="Ring finger"
               geometry={nodes.Ring_switchable.geometry}
               material={
-                ring < 15 || ring > 90
+                fingerColor[4] < 15 || fingerColor[4] > 90
                   ? materials["Hawaiian Passion 2"]
-                  : ring <= 20 || ring >= 80
+                  : fingerColor[4] <= 20 || fingerColor[4] >= 80
                   ? materials["Time Capsule"]
-                  : ring > 20 || ring < 80
+                  : fingerColor[4] > 20 || fingerColor[4] < 80
                   ? materials["Aurora 2"]
-                  : ring == null
+                  : fingerColor[4] == "null"
                   ? materials.Vera
                   : materials.Vera
               }
@@ -173,13 +150,13 @@ const HandVisualisatie = (props) => {
               name="Middle finger"
               geometry={nodes.middle_switchable.geometry}
               material={
-                middle < 15 || middle > 90
+                fingerColor[3] < 15 || fingerColor[3] > 90
                   ? materials["Hawaiian Passion 2"]
-                  : middle <= 20 || middle >= 80
+                  : fingerColor[3] <= 20 || fingerColor[3] >= 80
                   ? materials["Time Capsule"]
-                  : middle > 20 || middle < 80
+                  : fingerColor[3] > 20 || fingerColor[3] < 80
                   ? materials["Aurora 2"]
-                  : middle == null
+                  : fingerColor[3] == "null"
                   ? materials.Vera
                   : materials.Vera
               }
@@ -189,13 +166,13 @@ const HandVisualisatie = (props) => {
               name="Index finger"
               geometry={nodes.point_switchable.geometry}
               material={
-                index < 15 || index > 90
+                fingerColor[2] < 15 || fingerColor[2] > 90
                   ? materials["Hawaiian Passion 2"]
-                  : index <= 20 || index >= 80
+                  : fingerColor[2] <= 20 || fingerColor[2] >= 80
                   ? materials["Time Capsule"]
-                  : index > 20 || index < 80
+                  : fingerColor[2] > 20 || fingerColor[2] < 80
                   ? materials["Aurora 2"]
-                  : index == null
+                  : fingerColor[2] == null
                   ? materials.Vera
                   : materials.Vera
               }
@@ -205,13 +182,13 @@ const HandVisualisatie = (props) => {
               name="Thumb"
               geometry={nodes.thumb_switchable.geometry}
               material={
-                thumb < 15 || thumb > 90
+                fingerColor[1] < 15 || fingerColor[1] > 90
                   ? materials["Hawaiian Passion 2"]
-                  : thumb <= 20 || thumb >= 80
+                  : fingerColor[1] <= 20 || fingerColor[1] >= 80
                   ? materials["Time Capsule"]
-                  : thumb > 20 || thumb < 80
+                  : fingerColor[1] > 20 || fingerColor[1] < 80
                   ? materials["Aurora 2"]
-                  : thumb == null
+                  : fingerColor[1] === null
                   ? materials.Vera
                   : materials.Vera
               }
@@ -221,21 +198,35 @@ const HandVisualisatie = (props) => {
           </group>
           <Stage />
         </Canvas>
-        <div className="modelData__wrapper">
-          <div className="modelData__container">
-            <div className="modelData">
-              <span className="modelData--bold">Currently viewing: </span>
-              {dataTitle}
-            </div>
-            <div className="modelData">
-              <span className="modelData--bold">Measurement: </span>
-              {measurement} mm
-            </div>
-            <div className="modelData">
-              <span className="modelData--bold">Percentile: </span> {percentile}
+
+        {property ? (
+          <div className="modelData__wrapper">
+            <div className="modelData__container">
+              <div className="modelData">
+                <span className="modelData--bold">Currently viewing: </span>
+                {dataTitle}
+              </div>
+              <div className="modelData">
+                <span className="modelData--bold">Measurement: </span>
+                {measurement} mm
+              </div>
+              <div className="modelData">
+                <span className="modelData--bold">Percentile: </span>
+                {percentile}
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div className="modelData__wrapper">
+            <div className="modelData__container">
+              <div className="modelData">
+                <span className="modelData--bold">
+                  Select a hand property to view its data
+                </span>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );
