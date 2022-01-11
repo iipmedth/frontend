@@ -55,7 +55,7 @@ const HandVisualisatie = (props) => {
 
   useEffect(() => {
     let newFingerArr = ["null", "null", "null", "null", "null"];
-    if (patientHandPercentiles) {
+    if (patientHandPercentiles && dataTitle) {
       for (let i = 1; i < 6; i++) {
         if (dataTitle.includes(i)) {
           newFingerArr[i] = percentile;
@@ -74,7 +74,7 @@ const HandVisualisatie = (props) => {
   const modelText = (
     <>
       Click on a finger to filter on its data.
-      <span className="modelText--bold"> Filter on hover data?</span>
+      <span className="modelText--bold"> Filter on {hover} data?</span>
     </>
   );
 

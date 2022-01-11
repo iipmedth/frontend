@@ -38,6 +38,16 @@
     font-size: 1.2rem;
   }
 
+  &__failed {
+    padding: 1.5rem 2rem;
+    border: 1px solid #f85149;
+    background-color: #ec525c56;
+    border-radius: 0.6rem;
+    color: black;
+    font-size: 1.2rem;
+
+    margin: 1rem 0;
+  }
   &__link {
     color: blue;
     margin-top: 0;
