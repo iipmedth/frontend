@@ -6,6 +6,7 @@ const LoginForm = () => {
   const { login } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [authFail, setAuthFail] = useState(false);
 
   const submit = async (e) => {
     e.preventDefault();
@@ -13,6 +14,8 @@ const LoginForm = () => {
     await login(email, password).then((authSuccess) => {
       if (authSuccess) {
         window.location.assign("/patients");
+      } else {
+        setAuthFail(true);
       }
     });
   };
@@ -42,6 +45,13 @@ const LoginForm = () => {
               required
               onChange={(e) => setPassword(e.target.value)}
             />
+
+            {authFail ? (
+              <div className="authForm__failed">
+                <p>Incorrect username or password, please try again</p>
+              </div>
+            ) : null}
+
             <button type="submit">Sign in</button>
 
             <Link className="authForm__link" to="/register">

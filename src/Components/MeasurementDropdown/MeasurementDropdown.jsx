@@ -4,7 +4,8 @@ import "react-dropdown/style.css";
 import { DataContext } from "../../context/DataContext";
 
 const MeasurementDropdown = () => {
-  const { setSelectedFilter } = useContext(DataContext);
+  const { setSelectedFilter, selectedFilter, selectedIndex } =
+    useContext(DataContext);
 
   const options = [
     "All fingers",
@@ -23,9 +24,10 @@ const MeasurementDropdown = () => {
       <span className="measurementDropdown__span">Select a finger:</span>
       <Dropdown
         options={options}
-        defaultOption={options[0]}
-        placeholder={options[0]}
+        defaultOption={options[selectedFilter]}
+        placeholder={options}
         onChange={changeHandler}
+        value={selectedFilter}
         className="measurementDropdown__dropdown"
       />
     </div>
