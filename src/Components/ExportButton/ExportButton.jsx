@@ -35,8 +35,6 @@ const ExportButton = () => {
   const { selectedPatient, patientMeasurements, patientHandPercentiles } =
     useContext(DataContext);
   const exportToPDF = () => {
-    console.log(patientMeasurements);
-    console.log(patientHandPercentiles);
     let doc = new jsPDF("p", "pt");
     doc.setFont("Roboto-Regular");
     doc.setFillColor(0, 170, 167);
