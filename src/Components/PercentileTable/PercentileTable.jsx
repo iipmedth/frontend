@@ -98,7 +98,7 @@ const PercentileTable = (props) => {
         rendered: false,
       },
       {
-        name: "Span of middle finger and ring finger (4-5)",
+        name: "Span of ring finger and pinky (4-5)",
         measure: props.percentiles.span_4_5,
         options: ["Ring finger", "Pinky"],
         rendered: false,
