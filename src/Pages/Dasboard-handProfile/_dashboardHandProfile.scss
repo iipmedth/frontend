@@ -22,14 +22,14 @@
   max-width: 40%;
 }
 .dashboard__hand__handView {
-  height: 75%;
+  height: 74.5%;
   border-radius: 1rem;
   // padding: 1.5rem;
   background-color: $main-white;
 }
 
 .dashboard__hand__handSelect {
-  height: 20%;
+  // height: 20%;
   border-radius: 1rem;
   padding: 2rem;
   margin-top: 3rem;
@@ -96,4 +96,25 @@
 .dashboard__inner {
   position: relative;
   height: 91%;
+}
+
+@media only screen and (max-width: 1367px) {
+  .dashboard__hand {
+    max-width: 20%;
+  }
+  .dashboard__hand__handView {
+    height: 68.8%;
+  }
+
+  .dashboard__hand__handSelect {
+    padding: 2rem;
+  }
+
+  .dashboard__data__header__patientData {
+    padding: 1.5rem;
+  }
+
+  .dashboard__data__header__dataInfo {
+    padding: 1.5rem;
+  }
 }
