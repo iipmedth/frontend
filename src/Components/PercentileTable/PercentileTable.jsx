@@ -20,7 +20,7 @@ const PercentileTable = (props) => {
         rendered: false,
       },
       {
-        name: "Hand Width",
+        name: "Hand Breadth",
         measure: props.percentiles.hand_breadth,
         options: [
           "Thumb",
@@ -32,13 +32,13 @@ const PercentileTable = (props) => {
         rendered: false,
       },
       {
-        name: "Fingertip distance of thumb to middle finger (1-3)",
+        name: "Height difference between thumb and middle finger (1-3)",
         measure: props.percentiles.height_difference_1_3,
         options: ["Thumb", "Middle finger"],
         rendered: false,
       },
       {
-        name: "Fingertip distance of middle finger and pinky (3-5)",
+        name: "Height difference between middle finger and pinky (3-5)",
         measure: props.percentiles.height_difference_3_5,
         options: ["Middle finger", "Pinky"],
         rendered: false,

@@ -43,8 +43,8 @@ const InfoModal = (props) => {
           <br />
           <span style={{ backgroundColor: "#91c161" }}>Green</span>
           <p>
-            This is considered a 'normal' measurement, no extra attention should
-            be neccesarry.
+            This is considered an 'average' measurement, no extra attention
+            should be neccesarry.
           </p>
         </div>
       </div>
