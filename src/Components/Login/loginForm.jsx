@@ -1,19 +1,31 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { Link } from "react-router-dom";
+import { DataContext } from "../../context/DataContext";
 
 const LoginForm = () => {
   const { login } = useContext(AuthContext);
+  const { isTherapist, isFetching, isLoggedIn, setIsLoggedIn } =
+    useContext(DataContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [authFail, setAuthFail] = useState(false);
+  const [authSuccess, setAuthSuccess] = useState(false);
 
+  useEffect(() => {
+    if (authSuccess && isTherapist) {
+      window.location.assign("/patients");
+    } else if (authSuccess && isTherapist === false) {
+      window.location.assign("/dashboard");
+    }
+  }, [authSuccess, isTherapist, isFetching, isLoggedIn]);
   const submit = async (e) => {
     e.preventDefault();
 
     await login(email, password).then((authSuccess) => {
       if (authSuccess) {
-        window.location.assign("/patients");
+        setAuthSuccess(true);
+        setIsLoggedIn(true);
       } else {
         setAuthFail(true);
       }

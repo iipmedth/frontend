@@ -10,11 +10,15 @@ const PatientDataSection = (props) => {
   return (
     <div className="patientData">
       <h1 className="patientData__header">Personal information</h1>
-      <p className="patientData__text">Name: {props.patient.name} </p>
-      <p className="patientData__text">Age: {age} </p>
-      <p className="patientData__text">Sex: {props.patient.gender} </p>
       <p className="patientData__text">
-        Instrument: {props.patient.instrument}
+        Name: {props.patient.name ? props.patient.name : "--"}
+      </p>
+      <p className="patientData__text">Age: {age ? age : "--"} </p>
+      <p className="patientData__text">
+        Sex: {props.patient.gender ? props.patient.gender : "--"}{" "}
+      </p>
+      <p className="patientData__text">
+        Instrument: {props.patient.instrument ? props.patient.instrument : "--"}
       </p>
     </div>
   );

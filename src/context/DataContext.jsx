@@ -20,11 +20,15 @@ export const DataProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const [patientMeasurements, setPatientMeasurements] = useState(null);
+  const [isTherapist, setIsTherapist] = useState(null);
+  const [isFetching, setIsFecthing] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(null);
+  const [extremeValueToggle, setExtremeValueToggle] = useState(false);
 
   useEffect(() => {
     userDataSetter();
     patientsSetter();
-  }, []);
+  }, [isLoggedIn]);
 
   useEffect(() => {
     if (selectedPatient) {
@@ -48,13 +52,26 @@ export const DataProvider = ({ children }) => {
 
   const userDataSetter = async () => {
     await fetchUserData().then((res) => {
+      setIsFecthing(true);
+      if (res.role === "therapist") {
+        setIsTherapist(true);
+        localStorage.setItem("isTherapist", true);
+      } else {
+        setIsTherapist(false);
+        localStorage.setItem("isTherapist", false);
+        res.user_id = res.id;
+        setSelectedPatient(res);
+      }
       setUserData(res);
+      setIsFecthing(false);
     });
   };
 
   const patientsSetter = async () => {
     await fetchPatients().then((res) => {
-      setPatients(res);
+      if (isTherapist || JSON.parse(localStorage.getItem("isTherapist"))) {
+        setPatients(res);
+      }
     });
   };
 
@@ -101,6 +118,13 @@ export const DataProvider = ({ children }) => {
         modalVisible,
         setModalVisible,
         patientMeasurements,
+        isTherapist,
+        setIsTherapist,
+        isFetching,
+        isLoggedIn,
+        setIsLoggedIn,
+        extremeValueToggle,
+        setExtremeValueToggle,
       }}
     >
       {children}

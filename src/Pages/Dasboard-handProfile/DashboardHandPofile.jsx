@@ -12,6 +12,7 @@ import HandSelect from "../../Components/HandSelect/HandSelect";
 import LoadingOverlay from "../../Components/LoadingOverlay/LoadingOverlay";
 import MeasurementDropdown from "../../Components/MeasurementDropdown/MeasurementDropdown";
 import InfoModal from "../../Components/InfoModal/InfoModal";
+import ExtremeValueToggle from "../../Components/ExtremeValueToggle/ExtremeValueToggle";
 
 const DashboardHandProfile = () => {
   const {
@@ -20,16 +21,21 @@ const DashboardHandProfile = () => {
     loading,
     selectedFilter,
     modalVisible,
+    isTherapist,
+    extremeValueToggle,
   } = useContext(DataContext);
-  useEffect(() => {}, [selectedPatient, patientHandPercentiles]);
+  const [therapist, setTherapist] = useState(null);
   const [property, setProperty] = useState(null);
+  useEffect(() => {
+    setTherapist(JSON.parse(localStorage.getItem("isTherapist")));
+  }, [selectedPatient, patientHandPercentiles, isTherapist]);
 
   return (
     <div className="row dashboard">
       <InfoModal visible={modalVisible} />
       {/* NAVBAR */}
       <div className="col-lg-2">
-        <Navbar content="dashboard" />
+        <Navbar content={therapist ? "dashboard" : "overview"} />
       </div>
       {selectedPatient != null && (
         <div className="col-lg test">
@@ -69,6 +75,9 @@ const DashboardHandProfile = () => {
                     <div className="col-lg dashboard__data__body__graph__headerLeft">
                       <MeasurementDropdown />
                     </div>
+                    <div className="col-lg dashboard__data__body__graph__headerMiddle">
+                      <ExtremeValueToggle />
+                    </div>
                     <div className="col-lg dashboard__data__body__graph__headerRight">
                       <GraphInfoButton />
                       <ExportButton />
@@ -78,6 +87,7 @@ const DashboardHandProfile = () => {
                     <PercentileTable
                       percentiles={patientHandPercentiles}
                       selectedFilter={selectedFilter}
+                      toggle={extremeValueToggle}
                       changeIndex={(index) => setProperty(index)}
                     />
                   </div>

@@ -10,4 +10,8 @@
     font-size: $font-size-regular;
     margin-bottom: 0.3rem;
   }
+
+  &--invisible {
+    display: none;
+  }
 }

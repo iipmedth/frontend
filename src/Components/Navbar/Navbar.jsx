@@ -21,12 +21,16 @@ const Navbar = (props) => {
             <PatientBadge />
           </div>
           <ul className="navbar__nav col-lg">
-            <NavItem text="Complaint" icon="sickIcon" />
-            <NavItem text="Hand profile" icon="handIcon" />
-            <NavItem text="Activities" icon="activityIcon" />
-            <NavItem text="Participation" icon="participationIcon" />
-            <NavItem text="Conclusion" icon="conclusionIcon" />
-            <NavItem text="Advice" icon="adviceIcon" />
+            <NavItem text="Complaint" icon="sickIcon" active={false} />
+            <NavItem text="Hand profile" icon="handIcon" active={true} />
+            <NavItem text="Activities" icon="activityIcon" active={false} />
+            <NavItem
+              text="Participation"
+              icon="participationIcon"
+              active={false}
+            />
+            <NavItem text="Conclusion" icon="conclusionIcon" active={false} />
+            <NavItem text="Advice" icon="adviceIcon" active={false} />
           </ul>
         </div>
       )}
