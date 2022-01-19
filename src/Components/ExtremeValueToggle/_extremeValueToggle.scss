@@ -1,0 +1,12 @@
+.extremeValueToggle {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  text-align: center;
+
+  &__text {
+    align-self: center;
+    margin-left: 0.5rem;
+    font-size: $font-size-s;
+  }
+}

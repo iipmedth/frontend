@@ -12,6 +12,7 @@ import HandSelect from "../../Components/HandSelect/HandSelect";
 import LoadingOverlay from "../../Components/LoadingOverlay/LoadingOverlay";
 import MeasurementDropdown from "../../Components/MeasurementDropdown/MeasurementDropdown";
 import InfoModal from "../../Components/InfoModal/InfoModal";
+import ExtremeValueToggle from "../../Components/ExtremeValueToggle/ExtremeValueToggle";
 
 const DashboardHandProfile = () => {
   const {
@@ -21,6 +22,7 @@ const DashboardHandProfile = () => {
     selectedFilter,
     modalVisible,
     isTherapist,
+    extremeValueToggle,
   } = useContext(DataContext);
   const [therapist, setTherapist] = useState(null);
   const [property, setProperty] = useState(null);
@@ -73,6 +75,9 @@ const DashboardHandProfile = () => {
                     <div className="col-lg dashboard__data__body__graph__headerLeft">
                       <MeasurementDropdown />
                     </div>
+                    <div className="col-lg dashboard__data__body__graph__headerMiddle">
+                      <ExtremeValueToggle />
+                    </div>
                     <div className="col-lg dashboard__data__body__graph__headerRight">
                       <GraphInfoButton />
                       <ExportButton />
@@ -82,6 +87,7 @@ const DashboardHandProfile = () => {
                     <PercentileTable
                       percentiles={patientHandPercentiles}
                       selectedFilter={selectedFilter}
+                      toggle={extremeValueToggle}
                       changeIndex={(index) => setProperty(index)}
                     />
                   </div>
