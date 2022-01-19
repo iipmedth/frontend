@@ -1,0 +1,41 @@
+@import "./Font/font";
+
+// Generic text styling, h1, h2 , p etc.
+
+// 1 rem = 10px
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Open Sans";
+}
+
+h1 {
+  font-size: 3.2rem;
+}
+
+h2 {
+  font-size: 2.4rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+}
+
+h4 {
+  font-size: 1.6rem;
+}
+
+h5 {
+  font-size: 1.4rem;
+}
+
+h6 {
+  font-size: 1.2rem;
+}
+
+$font-size-s: 1.2rem;
+$font-size-regular: 1.4rem;
+$font-size-md: 1.6rem;
+$font-size-xl: 3.6rem;

@@ -1,0 +1,13 @@
+.logoutButton {
+  display: flex;
+  flex-direction: row;
+  column-gap: 0.5rem;
+  transition: all ease 0.25s;
+  margin-bottom: 3rem;
+}
+
+.logoutButton:hover {
+  cursor: pointer;
+  transition: all ease 0.25s;
+  opacity: 0.5;
+}

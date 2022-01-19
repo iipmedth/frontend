@@ -1,0 +1,31 @@
+.handSelect {
+  width: 100%;
+  text-align: center;
+
+  &__header {
+    font-size: $font-size-md;
+  }
+
+  &__subHead {
+    font-size: $font-size-regular;
+    font-weight: bold;
+    margin: 0.5rem 0 1rem 0;
+  }
+
+  &__select {
+    color: $main-blue;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    margin-top: 1rem;
+    transition: all ease 0.25s;
+    &:hover {
+      cursor: pointer;
+      opacity: 0.5;
+      transition: all ease 0.25s;
+    }
+    &--active {
+      color: $main-white;
+      background-color: $main-blue;
+      border-radius: $border-radius;
+    }
+  }
+}

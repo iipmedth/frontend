@@ -1,0 +1,54 @@
+.model__wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.modelText {
+  position: absolute;
+  top: 5rem;
+  left: 5rem;
+  font-size: 1.4rem;
+  padding: 0.5rem;
+  line-height: 2.5rem;
+  white-space: pre-line;
+
+  &--bold {
+    display: block;
+    font-weight: 600;
+  }
+}
+
+.modelData__container {
+  position: absolute;
+  bottom: 5%;
+  left: 10%;
+}
+
+.modelData {
+  font-size: 1.3rem;
+  margin-bottom: 0.3rem;
+
+  &--bold {
+    font-weight: 600;
+  }
+}
+
+.modelData--bold {
+  font-weight: 600;
+}
+
+.model {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1367px) {
+  .modelText {
+    top: 1rem;
+    left: 1rem;
+
+    &--bold {
+      display: block;
+      font-weight: 600;
+    }
+  }
+}

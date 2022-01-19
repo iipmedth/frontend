@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+//Styling
+import "./App.scss";
+//Pages
+import Register from "./Pages/Authentication/registerPage";
+import Login from "./Pages/Authentication/loginPage";
+import DashboardHandProfile from "./Pages/Dasboard-handProfile/DashboardHandPofile";
+import PatientsOverview from "./Pages/Patients-overview/PatientsOverview";
+import { r3f } from "@react-three/drei";
+
+//Modules
+import { Suspense } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
+import { DataProvider } from "./context/DataContext";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Suspense fallback={<h1>Loading...</h1>} r3f>
+      <AuthProvider>
+        <DataProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/patients" element={<PatientsOverview />} />
+              <Route path="/dashboard" element={<DashboardHandProfile />} />
+            </Routes>
+          </BrowserRouter>
+        </DataProvider>
+      </AuthProvider>
+    </Suspense>
   );
 }
 

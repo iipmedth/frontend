@@ -1,0 +1,126 @@
+.dashboard {
+  max-width: 100vw;
+  max-height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  background-color: $main-background;
+}
+
+.test {
+  height: 100%;
+}
+
+.dashboard__header {
+  font-size: $font-size-xl;
+  font-weight: bold;
+  padding: 1.5rem;
+  width: 100%;
+}
+
+.dashboard__hand {
+  padding: 1.5rem;
+  max-width: 40%;
+}
+.dashboard__hand__handView {
+  height: 74.5%;
+  border-radius: 1rem;
+  // padding: 1.5rem;
+  background-color: $main-white;
+}
+
+.dashboard__hand__handSelect {
+  // height: 20%;
+  border-radius: 1rem;
+  padding: 2rem;
+  margin-top: 3rem;
+  background-color: $main-white;
+}
+
+.dashboard__data {
+  height: 100%;
+  &__header {
+    height: 15%;
+    padding: 1.5rem;
+  }
+  &__body {
+    height: 80%;
+    padding: 1.5rem;
+    margin-top: 3rem;
+  }
+}
+
+.dashboard__data__header__patientData {
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: $main-white;
+  width: 25%;
+}
+
+.dashboard__data__header__dataInfo {
+  margin-left: 5rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 25%;
+  background-color: $main-white;
+}
+
+.dashboard__data__header__logo {
+  margin-left: auto;
+  padding: 2rem;
+  border-radius: 1rem;
+  height: 100%;
+}
+
+.dashboard__data__body__graph {
+  position: relative;
+  width: 100%;
+  max-height: 100%;
+  padding: 1rem 2rem 0 2rem;
+  border-radius: 1rem;
+  overflow: auto;
+  background-color: $main-white;
+
+  &__headerLeft {
+    margin-bottom: 1rem;
+    padding: 0;
+  }
+
+  &__headerMiddle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__headerRight {
+    margin-bottom: 1rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.dashboard__inner {
+  position: relative;
+  height: 91%;
+}
+
+@media only screen and (max-width: 1600px) {
+  .dashboard__hand {
+    max-width: 20%;
+  }
+  .dashboard__hand__handView {
+    height: 68.8%;
+  }
+
+  .dashboard__hand__handSelect {
+    padding: 2rem;
+  }
+
+  .dashboard__data__header__patientData {
+    padding: 1.5rem;
+  }
+
+  .dashboard__data__header__dataInfo {
+    padding: 1.5rem;
+  }
+}

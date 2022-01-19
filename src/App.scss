@@ -1,0 +1,25 @@
+// Style with min-width not max-width (Mobile ---- Desktop)
+// Don't forget about the order later ones have priority
+
+@import "./GlobalStyles/Globals.scss";
+@import "./Pages//Authentication//auth";
+@import "./Pages/Dasboard-handProfile/dashboardHandProfile";
+@import "./Components/Navbar/navbar";
+@import "./Components/NavItem/navItem";
+@import "./Components/LogoutButton/logoutButton";
+@import "./Components/UserBadge/userBadge";
+@import "./Components/PatientBadge/patientBadge";
+@import "./Pages/Patients-overview/patientsOverview";
+@import "./Components/Searchbar/searchbar";
+@import "./Components/PatientsContainer/patientsContainer";
+@import "./Components/PatientListItem/patientListItem";
+@import "./Components/PatientDataSection/patientDataSection";
+@import "./Components/DataInfoSection/dataInfoSection";
+@import "./Components/PercentileTable/percentileTable";
+@import "./Components/ExportButton/exportButton";
+@import "./Components/GraphInfoButton/graphInfoButton";
+@import "./Components/HandSelect/handSelect";
+@import "./Components/LoadingOverlay/loadingOverlay";
+@import "./Components/MeasurementDropdown/measurementDropdown";
+@import "./Components/InfoModal/infoModal";
+@import "./Components/ExtremeValueToggle/extremeValueToggle";

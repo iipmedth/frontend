@@ -1,0 +1,39 @@
+.searchbar {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background-color: $main-white;
+  width: 40rem;
+  height: 4rem;
+  border-radius: $border-radius;
+  border: 0.1rem solid $light-grey;
+
+  &__iconContainer {
+    border-radius: $border-radius 0 0 $border-radius;
+    width: 5rem;
+    height: 100%;
+    background-color: $main-blue;
+    color: $main-white;
+    position: relative;
+    display: flex;
+    align-items: center;
+    &__icon {
+      margin: 0 auto;
+    }
+  }
+
+  &__input {
+    width: 35rem;
+    outline: none;
+    border-radius: 0 $border-radius $border-radius 0;
+    height: 3rem;
+    padding: 0.5rem;
+    align-self: center;
+    margin: 0 auto;
+    border: none;
+
+    &:focus {
+      outline: solid 0.2rem $main-blue;
+    }
+  }
+}
