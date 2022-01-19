@@ -5,7 +5,6 @@ import Register from "./Pages/Authentication/registerPage";
 import Login from "./Pages/Authentication/loginPage";
 import DashboardHandProfile from "./Pages/Dasboard-handProfile/DashboardHandPofile";
 import PatientsOverview from "./Pages/Patients-overview/PatientsOverview";
-import { r3f } from "@react-three/drei";
 
 //Modules
 import { Suspense } from "react";

@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 // ibrary's
-import { Navigate, Link, useNavigate } from "react-router-dom";
-import { Formik, Form, Field, ErrorMessage, setSubmitting } from "formik";
+import { Link, useNavigate } from "react-router-dom";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 // Imported Variables
-import { URL, TEST_URL } from "../../GlobalStyles/variables/variables";
+import { URL } from "../../GlobalStyles/variables/variables";
 import axios from "axios";
 
 const validationSchema = Yup.object({
@@ -30,7 +30,7 @@ const RegisterForm = () => {
       role: "Therapist",
     };
     try {
-      const response = await axios.post(TEST_URL + "register", payload, {
+      const response = await axios.post(URL + "register", payload, {
         withCredentials: true,
       });
       if (response.status === 201) {
@@ -59,26 +59,49 @@ const RegisterForm = () => {
           <div className="authForm">
             <Form onSubmit={(preventDefault, handleSubmit)}>
               <h2 className="authForm__heading">Register</h2>
-              <label className="authForm__label">Full name</label>
-              <Field label="name" name="name" type="input" placeholder="Name" />
+              <label id="fullname" className="authForm__label">
+                Full name
+              </label>
+              <Field
+                label="name"
+                name="name"
+                type="input"
+                placeholder="Name"
+                aria-labelledby="fullname"
+              />
               <div className="authForm__error">
                 <ErrorMessage name="name" />
               </div>
-              <label className="authForm__label">Email</label>
-              <Field name="email" type="email" placeholder="Email" />
+              <label id="email" className="authForm__label">
+                Email
+              </label>
+              <Field
+                name="email"
+                type="email"
+                placeholder="Email"
+                aria-labelledby="email"
+              />
               <div className="authForm__error">
-                <ErrorMessage name="email" />
+                <ErrorMessage data-testid="email-error" name="email" />
               </div>
               <label className="authForm__label">Password</label>
-              <Field name="password" type="password" placeholder="Password" />
+              <Field
+                name="password"
+                type="password"
+                placeholder="Password"
+                data-testid="password"
+              />
               <div className="authForm__error">
                 <ErrorMessage name="password" />
               </div>
-              <label className="authForm__label">Confirm password</label>
+              <label id="confirmPassword" className="authForm__label">
+                Confirm Password
+              </label>
               <Field
                 name="confirmPassword"
                 type="password"
                 placeholder="Confirm password"
+                data-testid="confirmPassword"
               />
               <div className="authForm__error">
                 <ErrorMessage name="confirmPassword" />

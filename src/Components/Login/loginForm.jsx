@@ -43,6 +43,8 @@ const LoginForm = () => {
               Email
             </label>
             <input
+              data-testid="email"
+              id="login-email"
               type="email"
               placeholder="Email"
               required
@@ -52,6 +54,7 @@ const LoginForm = () => {
               Password
             </label>
             <input
+              id="password"
               type="password"
               placeholder="Password"
               required
