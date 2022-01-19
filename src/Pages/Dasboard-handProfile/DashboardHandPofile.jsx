@@ -20,16 +20,20 @@ const DashboardHandProfile = () => {
     loading,
     selectedFilter,
     modalVisible,
+    isTherapist,
   } = useContext(DataContext);
-  useEffect(() => {}, [selectedPatient, patientHandPercentiles]);
+  const [therapist, setTherapist] = useState(null);
   const [property, setProperty] = useState(null);
+  useEffect(() => {
+    setTherapist(JSON.parse(localStorage.getItem("isTherapist")));
+  }, [selectedPatient, patientHandPercentiles, isTherapist]);
 
   return (
     <div className="row dashboard">
       <InfoModal visible={modalVisible} />
       {/* NAVBAR */}
       <div className="col-lg-2">
-        <Navbar content="dashboard" />
+        <Navbar content={therapist ? "dashboard" : "overview"} />
       </div>
       {selectedPatient != null && (
         <div className="col-lg test">
