@@ -149,7 +149,7 @@ const PercentileTable = (props) => {
         tableRows.push(
           <tr key={index} className="percentileTable__row">
             <td
-              onClick={() => measurementClickHandler(index)}
+              onMouseEnter={() => measurementClickHandler(index)}
               className={
                 selectedIndex === index
                   ? "percentileTable__row__item__lead--active"
