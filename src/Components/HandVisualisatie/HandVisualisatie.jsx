@@ -2,23 +2,20 @@ import React, { useRef, useState, useContext, useEffect } from "react";
 
 // Three.js fiber
 import { Canvas } from "@react-three/fiber";
-import { useGLTF, Stats } from "@react-three/drei";
-import * as THREE from "three";
-
+import { useGLTF } from "@react-three/drei";
 // Lightning
 import Stage from "./Stage";
-
 import "./handvisualisatie.scss";
-// Data
+// Data Context
 import { DataContext } from "../../context/DataContext";
 
 const HandVisualisatie = (props) => {
   // Data
   const {
-    selectedFilter,
     setSelectedFilter,
     patientHandPercentiles,
     patientMeasurements,
+    selectedHand,
   } = useContext(DataContext);
   const property = props.property;
   // Model
@@ -30,8 +27,6 @@ const HandVisualisatie = (props) => {
   const [percentile, setPercentile] = useState(null);
   const [dataTitle, setDataTitle] = useState(null);
   const [hover, setHover] = useState(null);
-
-  // States for colors in hand
   const [fingerColor, setFingerColor] = useState([]);
 
   useEffect(() => {
@@ -99,10 +94,11 @@ const HandVisualisatie = (props) => {
             ref={group}
             {...props}
             dispose={null}
-            scale={17.09}
-            position={[0, -2, 0]}
+            scale={selectedHand === "left" ? 17.09 : -17.09}
+            position={selectedHand === "left" ? [0, -2, 0] : [-0.3, -2, 0]}
             onClick={(event) => setSelectedFilter(event.object.name)}
-            rotation={[0, 135, 0]}
+            rotation={[0, 6.1, Math.PI]}
+            rotation={selectedHand === "left" ? [0, 135, 0] : [0, 6.1, Math.PI]}
             onPointerOver={(e) => (
               e.stopPropagation(), setHover(e.object.name)
             )}
@@ -125,7 +121,7 @@ const HandVisualisatie = (props) => {
                   ? materials["Time Capsule"]
                   : fingerColor[5] > 20 || fingerColor[5] < 80
                   ? materials["Aurora 2"]
-                  : fingerColor[5] == "null"
+                  : fingerColor[5] === "null"
                   ? materials.Vera
                   : materials.Vera
               }
@@ -140,7 +136,7 @@ const HandVisualisatie = (props) => {
                   ? materials["Time Capsule"]
                   : fingerColor[4] > 20 || fingerColor[4] < 80
                   ? materials["Aurora 2"]
-                  : fingerColor[4] == "null"
+                  : fingerColor[4] === "null"
                   ? materials.Vera
                   : materials.Vera
               }
@@ -156,7 +152,7 @@ const HandVisualisatie = (props) => {
                   ? materials["Time Capsule"]
                   : fingerColor[3] > 20 || fingerColor[3] < 80
                   ? materials["Aurora 2"]
-                  : fingerColor[3] == "null"
+                  : fingerColor[3] === "null"
                   ? materials.Vera
                   : materials.Vera
               }
@@ -172,7 +168,7 @@ const HandVisualisatie = (props) => {
                   ? materials["Time Capsule"]
                   : fingerColor[2] > 20 || fingerColor[2] < 80
                   ? materials["Aurora 2"]
-                  : fingerColor[2] == null
+                  : fingerColor[2] === null
                   ? materials.Vera
                   : materials.Vera
               }
