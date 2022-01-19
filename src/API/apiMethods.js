@@ -19,7 +19,6 @@ export const login = async (email, password) => {
     });
     return authenticated;
   } catch (err) {
-    console.log(err);
     return false;
   }
 };
@@ -58,7 +57,6 @@ export const register = async (name, email, password) => {
     /**
      * @TODO Handle error
      */
-    console.log(err);
   }
 };
 
@@ -77,7 +75,6 @@ export const fetchUserData = async () => {
     });
     return data;
   } catch (err) {
-    console.log(err);
     return null;
   }
 };
@@ -97,7 +94,6 @@ export const fetchPatients = async () => {
     });
     return data;
   } catch (err) {
-    console.log(err);
     return null;
   }
 };
@@ -118,10 +114,7 @@ export const fetchPatientHandPercentiles = async (patient_id, hand) => {
       data = response.json();
     });
     return data;
-  } catch (err) {
-    // TODO handle error
-    console.error(err);
-  }
+  } catch (err) {}
 };
 
 /**
@@ -142,7 +135,6 @@ export const fetchDataCount = async (patient_id, hand) => {
     return data;
   } catch (err) {
     // TODO handle error
-    console.error(err);
   }
 };
 
@@ -158,6 +150,5 @@ export const fetchMeasurements = async (patient_id, hand) => {
     return data;
   } catch (err) {
     // TODO handle error
-    console.error(err);
   }
 };
