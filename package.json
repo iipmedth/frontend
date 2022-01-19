@@ -59,6 +59,11 @@
     ]
   },
   "devDependencies": {
+    "@react-three/test-renderer": "^7.0.23",
+    "@testing-library/dom": "^8.11.2",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.6",
+    "enzyme": "^3.11.0",
+    "jest": "^27.4.7",
     "prettier": "2.5.0"
   }
 }
