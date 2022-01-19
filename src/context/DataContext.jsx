@@ -23,6 +23,7 @@ export const DataProvider = ({ children }) => {
   const [isTherapist, setIsTherapist] = useState(null);
   const [isFetching, setIsFecthing] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(null);
+  const [extremeValueToggle, setExtremeValueToggle] = useState(false);
 
   useEffect(() => {
     userDataSetter();
@@ -122,6 +123,8 @@ export const DataProvider = ({ children }) => {
         isFetching,
         isLoggedIn,
         setIsLoggedIn,
+        extremeValueToggle,
+        setExtremeValueToggle,
       }}
     >
       {children}

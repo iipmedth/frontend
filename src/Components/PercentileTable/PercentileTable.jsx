@@ -145,78 +145,155 @@ const PercentileTable = (props) => {
         item.options[option] === props.selectedFilter ||
         (props.selectedFilter === "All fingers" && !item.rendered)
       ) {
-        item.rendered = true;
-        tableRows.push(
-          <tr key={index} className="percentileTable__row">
-            <td
-              onMouseEnter={() => measurementClickHandler(index)}
-              className={
-                selectedIndex === index
-                  ? "percentileTable__row__item__lead--active"
-                  : "percentileTable__row__item__lead"
-              }
-            >
-              {item.name}
-            </td>
-            <td className="percentileTable__row__item percentileTable__row__item--red">
-              {percentileChecker(5, item.measure)}
-            </td>
-            <td className="percentileTable__row__item percentileTable__row__item--red">
-              {percentileChecker(10, item.measure)}
-            </td>
-            <td className="percentileTable__row__item percentileTable__row__item--yellow">
-              {percentileChecker(15, item.measure)}
-            </td>
-            <td className="percentileTable__row__item percentileTable__row__item--yellow">
-              {percentileChecker(20, item.measure)}
-            </td>
-            <td className="percentileTable__row__item percentileTable__row__item--green">
-              {percentileChecker(25, item.measure)}
-            </td>
-            <td className="percentileTable__row__item percentileTable__row__item--green">
-              {percentileChecker(30, item.measure)}
-            </td>
-            <td className="percentileTable__row__item percentileTable__row__item--green">
-              {percentileChecker(35, item.measure)}
-            </td>
-            <td className="percentileTable__row__item percentileTable__row__item--green">
-              {percentileChecker(40, item.measure)}
-            </td>
-            <td className="percentileTable__row__item percentileTable__row__item--green">
-              {percentileChecker(45, item.measure)}
-            </td>
-            <td className="percentileTable__row__item percentileTable__row__item--green">
-              {percentileChecker(50, item.measure)}
-            </td>
-            <td className="percentileTable__row__item percentileTable__row__item--green">
-              {percentileChecker(55, item.measure)}
-            </td>
-            <td className="percentileTable__row__item percentileTable__row__item--green">
-              {percentileChecker(60, item.measure)}
-            </td>
-            <td className="percentileTable__row__item percentileTable__row__item--green">
-              {percentileChecker(65, item.measure)}
-            </td>
-            <td className="percentileTable__row__item percentileTable__row__item--green">
-              {percentileChecker(70, item.measure)}
-            </td>
-            <td className="percentileTable__row__item percentileTable__row__item--green">
-              {percentileChecker(75, item.measure)}
-            </td>
-            <td className="percentileTable__row__item percentileTable__row__item--yellow">
-              {percentileChecker(80, item.measure)}
-            </td>
-            <td className="percentileTable__row__item percentileTable__row__item--yellow">
-              {percentileChecker(85, item.measure)}
-            </td>
-            <td className="percentileTable__row__item percentileTable__row__item--red">
-              {percentileChecker(90, item.measure)}
-            </td>
-            <td className="percentileTable__row__item percentileTable__row__item--red">
-              {percentileChecker(95, item.measure)}
-            </td>
-          </tr>
-        );
+        if (props.toggle) {
+          if (item.measure <= 10 || item.measure >= 80) {
+            item.rendered = true;
+            tableRows.push(
+              <tr key={index} className="percentileTable__row">
+                <td
+                  onMouseEnter={() => measurementClickHandler(index)}
+                  className={
+                    selectedIndex === index
+                      ? "percentileTable__row__item__lead--active"
+                      : "percentileTable__row__item__lead"
+                  }
+                >
+                  {item.name}
+                </td>
+                <td className="percentileTable__row__item percentileTable__row__item--red">
+                  {percentileChecker(5, item.measure)}
+                </td>
+                <td className="percentileTable__row__item percentileTable__row__item--red">
+                  {percentileChecker(10, item.measure)}
+                </td>
+                <td className="percentileTable__row__item percentileTable__row__item--yellow">
+                  {percentileChecker(15, item.measure)}
+                </td>
+                <td className="percentileTable__row__item percentileTable__row__item--yellow">
+                  {percentileChecker(20, item.measure)}
+                </td>
+                <td className="percentileTable__row__item percentileTable__row__item--green">
+                  {percentileChecker(25, item.measure)}
+                </td>
+                <td className="percentileTable__row__item percentileTable__row__item--green">
+                  {percentileChecker(30, item.measure)}
+                </td>
+                <td className="percentileTable__row__item percentileTable__row__item--green">
+                  {percentileChecker(35, item.measure)}
+                </td>
+                <td className="percentileTable__row__item percentileTable__row__item--green">
+                  {percentileChecker(40, item.measure)}
+                </td>
+                <td className="percentileTable__row__item percentileTable__row__item--green">
+                  {percentileChecker(45, item.measure)}
+                </td>
+                <td className="percentileTable__row__item percentileTable__row__item--green">
+                  {percentileChecker(50, item.measure)}
+                </td>
+                <td className="percentileTable__row__item percentileTable__row__item--green">
+                  {percentileChecker(55, item.measure)}
+                </td>
+                <td className="percentileTable__row__item percentileTable__row__item--green">
+                  {percentileChecker(60, item.measure)}
+                </td>
+                <td className="percentileTable__row__item percentileTable__row__item--green">
+                  {percentileChecker(65, item.measure)}
+                </td>
+                <td className="percentileTable__row__item percentileTable__row__item--green">
+                  {percentileChecker(70, item.measure)}
+                </td>
+                <td className="percentileTable__row__item percentileTable__row__item--green">
+                  {percentileChecker(75, item.measure)}
+                </td>
+                <td className="percentileTable__row__item percentileTable__row__item--yellow">
+                  {percentileChecker(80, item.measure)}
+                </td>
+                <td className="percentileTable__row__item percentileTable__row__item--yellow">
+                  {percentileChecker(85, item.measure)}
+                </td>
+                <td className="percentileTable__row__item percentileTable__row__item--red">
+                  {percentileChecker(90, item.measure)}
+                </td>
+                <td className="percentileTable__row__item percentileTable__row__item--red">
+                  {percentileChecker(95, item.measure)}
+                </td>
+              </tr>
+            );
+          }
+        } else if (!props.toggle) {
+          item.rendered = true;
+          tableRows.push(
+            <tr key={index} className="percentileTable__row">
+              <td
+                onMouseEnter={() => measurementClickHandler(index)}
+                className={
+                  selectedIndex === index
+                    ? "percentileTable__row__item__lead--active"
+                    : "percentileTable__row__item__lead"
+                }
+              >
+                {item.name}
+              </td>
+              <td className="percentileTable__row__item percentileTable__row__item--red">
+                {percentileChecker(5, item.measure)}
+              </td>
+              <td className="percentileTable__row__item percentileTable__row__item--red">
+                {percentileChecker(10, item.measure)}
+              </td>
+              <td className="percentileTable__row__item percentileTable__row__item--yellow">
+                {percentileChecker(15, item.measure)}
+              </td>
+              <td className="percentileTable__row__item percentileTable__row__item--yellow">
+                {percentileChecker(20, item.measure)}
+              </td>
+              <td className="percentileTable__row__item percentileTable__row__item--green">
+                {percentileChecker(25, item.measure)}
+              </td>
+              <td className="percentileTable__row__item percentileTable__row__item--green">
+                {percentileChecker(30, item.measure)}
+              </td>
+              <td className="percentileTable__row__item percentileTable__row__item--green">
+                {percentileChecker(35, item.measure)}
+              </td>
+              <td className="percentileTable__row__item percentileTable__row__item--green">
+                {percentileChecker(40, item.measure)}
+              </td>
+              <td className="percentileTable__row__item percentileTable__row__item--green">
+                {percentileChecker(45, item.measure)}
+              </td>
+              <td className="percentileTable__row__item percentileTable__row__item--green">
+                {percentileChecker(50, item.measure)}
+              </td>
+              <td className="percentileTable__row__item percentileTable__row__item--green">
+                {percentileChecker(55, item.measure)}
+              </td>
+              <td className="percentileTable__row__item percentileTable__row__item--green">
+                {percentileChecker(60, item.measure)}
+              </td>
+              <td className="percentileTable__row__item percentileTable__row__item--green">
+                {percentileChecker(65, item.measure)}
+              </td>
+              <td className="percentileTable__row__item percentileTable__row__item--green">
+                {percentileChecker(70, item.measure)}
+              </td>
+              <td className="percentileTable__row__item percentileTable__row__item--green">
+                {percentileChecker(75, item.measure)}
+              </td>
+              <td className="percentileTable__row__item percentileTable__row__item--yellow">
+                {percentileChecker(80, item.measure)}
+              </td>
+              <td className="percentileTable__row__item percentileTable__row__item--yellow">
+                {percentileChecker(85, item.measure)}
+              </td>
+              <td className="percentileTable__row__item percentileTable__row__item--red">
+                {percentileChecker(90, item.measure)}
+              </td>
+              <td className="percentileTable__row__item percentileTable__row__item--red">
+                {percentileChecker(95, item.measure)}
+              </td>
+            </tr>
+          );
+        }
       }
     }
   });
