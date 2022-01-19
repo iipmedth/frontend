@@ -11,4 +11,10 @@
     opacity: 0.5;
     transition: all ease 0.25s;
   }
+
+  &--active {
+    width: 100%;
+    background-color: $main-blue-highlight;
+    padding: 1rem;
+  }
 }
